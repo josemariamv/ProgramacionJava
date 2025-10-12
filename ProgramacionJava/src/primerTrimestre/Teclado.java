@@ -1,3 +1,4 @@
+package primerTrimestre;
 import java.util.Scanner;
 import java.util.Locale;
 

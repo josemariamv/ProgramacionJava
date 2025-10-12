@@ -1,5 +1,5 @@
 
-public class Main {
+public class Cadenas {
 
 	public static void main(String[] args) {
 		/* Las cadenas de texto son objetos de Java. Aunque son básicos

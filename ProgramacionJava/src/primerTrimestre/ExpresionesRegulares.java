@@ -33,7 +33,20 @@ public class ExpresionesRegulares {
 		else
 			System.out.println("El patrón no coincide");
 		
-		// Veamo algún ejemplo mas
+		// Otro método mas sencillo consiste en usar directamente el método match de la clase String
+		String dni1 = "12345678";
+		String dni2 = "12345678S";
+        String patronDNI =  "\\d{8}[A-Z]"; // El patrón ahora son 8 dígitos seguidos de una letra en mayúsculas  
+        
+        if(dni1.matches(patronDNI) == true)
+        	System.out.println(dni1 + " es un dni válido");
+        else
+        	System.out.println(dni1 + " no es un dni válido");
+        
+        if(dni2.matches(patronDNI) == true)
+        	System.out.println(dni2 + " es un dni válido");
+        else
+        	System.out.println(dni2 + " no es un dni válido");
 		
 	}
 }

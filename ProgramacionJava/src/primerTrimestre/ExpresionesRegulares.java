@@ -30,6 +30,7 @@ public class ExpresionesRegulares {
 		
 		coincidencia = patron2.matcher("X12345678P");
 		// En este caso si coincide. El patrón tiene 8 dígitos seguidos. No importa si tiene algo adicional
+		// Busca que haya una coincidencia, que el patrón exista dentro de la cadena
 		if(coincidencia.find() == true)
 			System.out.println("El patrón coincide");
 		else
@@ -40,6 +41,7 @@ public class ExpresionesRegulares {
 		String dni2 = "12345678S";
         String patronDNI =  "\\d{8}[A-Z]"; // El patrón ahora son 8 dígitos seguidos de una letra en mayúsculas  
         
+        // En este caso el patrón si que tiene que coincidir exactamente con la cadena. Si tiene algo adicional evalúa como false
         if(dni1.matches(patronDNI) == true)
         	System.out.println(dni1 + " es un dni válido");
         else

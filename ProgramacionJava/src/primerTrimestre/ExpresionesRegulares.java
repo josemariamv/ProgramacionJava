@@ -18,6 +18,8 @@ public class ExpresionesRegulares {
 		 */
 		
 		Pattern patron = Pattern.compile("\\d{8}");
+		// Este segundo patrón es equivalente al anterior
+		Pattern patron2 = Pattern.compile("[0-9]{8}");
 		
 		Matcher coincidencia = patron.matcher("28896");
 		// En este caso el patrón no coincide. El texto no tiene 8 dígitos
@@ -26,7 +28,7 @@ public class ExpresionesRegulares {
 		else
 			System.out.println("El patrón no coincide");
 		
-		coincidencia = patron.matcher("X12345678P");
+		coincidencia = patron2.matcher("X12345678P");
 		// En este caso si coincide. El patrón tiene 8 dígitos seguidos. No importa si tiene algo adicional
 		if(coincidencia.find() == true)
 			System.out.println("El patrón coincide");

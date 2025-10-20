@@ -14,7 +14,7 @@ public class ExpresionesRegulares {
 		/*
 		 * Para usar expresiones regulares en Java necesitamos usar dos clases nuevas: Pattern y Matcher
 		 * Pattern me permite definir el patrón que busco
-		 * Matcher me identificará si ese patrón existe o no en una cadena de texto concreta
+		 * Matcher me identificará si ese patrón existe o no en una cadena de texto concreta.
 		 */
 		
 		Pattern patron = Pattern.compile("\\d{8}");

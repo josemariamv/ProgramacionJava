@@ -66,6 +66,18 @@ public class ExpresionesRegulares {
         	System.out.println(matricula2 + " es una matrícula válido");
         else
         	System.out.println(matricula2 + " no es una matrícula válida");
-        	
+        
+        // Algunos ejemplos de patrones mas complejos:
+        String consonantes = "[A-ZÑ && [^AEIOU]]{5}"; // valida cinco letras consonantes mayúsculas
+        if("QÑERT".matches(consonantes) == true)
+        	System.out.println("sólo tiene consonantes");
+        else
+        	System.out.println("tiene alguna vocal");
+        
+        String meses = "[1-9]|1[0-2]"; // valida un mes entre el 1 y el 12, ambos incluidos
+        if("3".matches(meses) == true)
+        	System.out.println("es un mes válido");
+        else
+        	System.out.println("no es un mes válido");
 	}
 }

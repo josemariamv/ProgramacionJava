@@ -58,16 +58,16 @@ public class ExpresionesRegulares {
         String patronMatricula =  "\\d{4}[\\s][A-Z]{3}";  
         
         if(matricula1.matches(patronMatricula) == true)
-        	System.out.println(matricula1 + " es una matrícula válido");
+        	System.out.println(matricula1 + " es una matrícula válida");
         else
         	System.out.println(matricula1 + " no es una matrícula válida");
         
         if(matricula2.matches(patronMatricula) == true)
-        	System.out.println(matricula2 + " es una matrícula válido");
+        	System.out.println(matricula2 + " es una matrícula válida");
         else
         	System.out.println(matricula2 + " no es una matrícula válida");
         
-        // Algunos ejemplos de patrones mas complejos:
+        // Algunos ejemplos de patrones un poco mas complejos:
         String consonantes = "[A-ZÑ && [^AEIOU]]{5}"; // valida cinco letras consonantes mayúsculas
         if("QÑERT".matches(consonantes) == true)
         	System.out.println("sólo tiene consonantes");

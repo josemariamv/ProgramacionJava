@@ -70,7 +70,7 @@ public class Vectores {
 		System.out.println("\n");
 			
 		// Si realmente quiero una copia independiente uso el método copyOf
-		String[] masProfesores = Arrays.copyOf(profesores,5);
+		String[] masProfesores = Arrays.copyOf(profesores,profesores.length);
 		profesores[3] = "Félix";
 		// ahora el cambio no se ha realizado en masProfesores porque es una copia independiente y no una referencia
 		for(String profe: masProfesores)
@@ -84,7 +84,7 @@ public class Vectores {
 		System.out.println("\n");
 		
 		// O ampliarlo para poder meter mas al final
-		String[] muchosMasProfesores = Arrays.copyOf(profesores,7);
+		String[] muchosMasProfesores = Arrays.copyOf(profesores,profesores.length+2);
 		muchosMasProfesores[5] = "Agustín";
 		muchosMasProfesores[6] = "Fernando";
 		for(String profe: muchosMasProfesores)

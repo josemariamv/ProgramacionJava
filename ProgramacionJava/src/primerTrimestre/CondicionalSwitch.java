@@ -110,5 +110,7 @@ public class CondicionalSwitch{
 		 * Un switch siempre puede sustituirse por un bloque de if-else anidados. Pero
 		 * cuando tenemos muchas opciones a evaluar un switch puede ser mas claro
 		 */
+		
+		teclado.close();
 	}
 }

@@ -23,7 +23,7 @@ public class Repetidos {
 		int numero = 0;
 		int repeticiones = 0;
 		
-		// recoremos la tabla de números
+		// recorremos la tabla de números
 		for (int i = 0; i < cantidad - 1; i++) {
 			// si detectamos una repetición en dos elementos contiguos, ya que están ordenados
 			if (tabla[i] == tabla[i + 1]) {

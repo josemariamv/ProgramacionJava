@@ -131,6 +131,11 @@ public class Vectores {
 		for (String elemento:elementos)
 			System.out.println(elemento);
 		
+		texto = "23.3-566 234.5-11 27";
+		String[] elementos3 = texto.split("-");
+		for (String elemento:elementos3)
+			System.out.println(elemento);
+		
 		texto = "23.3*566***234.5*11**27";
 		String[] elementos2 = texto.split("[*]+");
 		for (String elemento:elementos2)

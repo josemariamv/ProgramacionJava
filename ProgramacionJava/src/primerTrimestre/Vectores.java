@@ -125,6 +125,15 @@ public class Vectores {
 		texto = texto.replace("]", "");
 		System.out.println(texto);
 		
+		// El método split separa un string en elementos de un array indicando una expresión regular que actúa como separador
+		texto = "23.3 566 234.5 11 27";
+		String[] elementos = texto.split(" ");
+		for (String elemento:elementos)
+			System.out.println(elemento);
 		
+		texto = "23.3*566***234.5*11**27";
+		String[] elementos2 = texto.split("[*]+");
+		for (String elemento:elementos2)
+			System.out.println(elemento);		
 	}
 }

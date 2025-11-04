@@ -1,5 +1,4 @@
 package primerTrimestre;
-import java.util.Random;
 
 public class Repetitivas {
 

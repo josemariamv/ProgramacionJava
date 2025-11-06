@@ -65,6 +65,9 @@ public class impresion {
 		// Y si ponemos un paréntesis los números negativos aparecen entre paréntesis
 		System.out.printf("%(d y %(d%n", -3, 55);
 		
+		// Si necesitamos que aparezca el signo del tanto por ciento en nuestra cadena lo escribimos duplicado:
+		System.out.printf("Hemos conseguido un %.2f%% de éxitos\n", 55.346);
+		
 		// printf también se puede mostrar como error
 		System.err.printf("El valor de pi con tres decimales es %.3f%n", pi);
 	}

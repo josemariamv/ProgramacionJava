@@ -17,7 +17,11 @@ public class DadoTrucado {
 		do {
 			tiradas++;
 			for (int i = 0; i < dados; i++) {
-				int dado = (int) (Math.random() * 6) + 1;
+				//int dado = (int) (Math.random() * 6) + 1;
+				// duplicamos la posibilidad de que salga un 6
+				int dado = (int) (Math.random() * 7) + 1;
+				if(dado == 6)
+					dado = 7;
 				frecuencias[dado]++;
 				resultados[i] = dado;
 				if (i == dados - 1)

@@ -1,5 +1,8 @@
 package primerTrimestre;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Excepciones {
 
 	public static void main(String[] args) {
@@ -34,9 +37,10 @@ public class Excepciones {
 		// curso haya o no haya ocurrido un error
 		System.out.println("Nuestro programa continúa normalmente");
 		
-		
-		divisor = (int)(Math.random()*3);
+		Scanner teclado = new Scanner(System.in);
+		System.out.print("Introduce el divisor: ");
 		try {
+			divisor = teclado.nextInt();
 			int resultado = (int)(10/divisor);
 			System.out.println(resultado);
 		} catch (ArithmeticException e){
@@ -45,11 +49,14 @@ public class Excepciones {
 			// bloques catch y si ninguno coincide con la excepción
 			// al final se ejecuta el genérico (Exception e) que siempre
 			// debe de ser el último
-			System.out.println("Excepción aritmética");	
+			System.out.println("División por cero");	
+		} catch (InputMismatchException e) {
+			// No has metido un entero
+			System.out.println("No es un entero");
 		} catch (Exception e) {
 			// En este caso como no existe otra causa de excepción
 			// esta no se ejecutará nunca
-			System.out.println("Otra excepción no contemplada");
+			System.out.println("No se lo que ha ocurrido pero ha habido un error");
 		} finally {
 			// Esto se ejecuta haya o no haya excepción
 			System.out.println("Esto se ejecuta en todos los casos");
@@ -66,5 +73,4 @@ public class Excepciones {
 				System.out.println("No se puede dividir por cero");
 		}
 	}
-
 }

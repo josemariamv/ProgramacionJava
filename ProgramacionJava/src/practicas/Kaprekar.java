@@ -1,10 +1,5 @@
 package practicas;
 
-<<<<<<< HEAD
-public class Kaprekar {
-	public static void main(String[] args) {
-		
-=======
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -48,7 +43,7 @@ public class Kaprekar {
 							// vector[i] = Integer.parseInt(Character.toString(numTxt.charAt(i)));
 							// vector[i] = numTxt.charAt(i) - '0';
 							vector[i] = numTxt.charAt(i) - 48;
-							// vector[i] = Character.getNumericValue(numTxt.charAt(i));
+						// vector[i] = Character.getNumericValue(numTxt.charAt(i));
 						Arrays.sort(vector);
 						for (int i = 0; i < 4; i++) {
 							ascendente = ascendente + vector[i];
@@ -59,7 +54,7 @@ public class Kaprekar {
 						entrada = numDescendente - numAscendente;
 						numTxt = Integer.toString(entrada);
 						// Si el número resultante tiene menos de cuatro cifras
-						for(int i=numTxt.length(); i<4; i++)
+						for (int i = numTxt.length(); i < 4; i++)
 							numTxt = "0" + numTxt;
 						System.out.println(descendente + " - " + ascendente + " = " + entrada);
 					}
@@ -67,6 +62,5 @@ public class Kaprekar {
 				}
 			}
 		}
->>>>>>> branch 'master' of https://github.com/josemariamv/ProgramacionJava
 	}
 }

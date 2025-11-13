@@ -17,7 +17,7 @@ public class ProgramacionModular1 {
 	public static void esPrimo(int n) {
 		boolean esPrimo = true;
 		int raiz = (int) Math.sqrt(n) + 1;
-		if (n % 2 != 0) {
+		if (n % 2 != 0 || n == 2) {
 			for (int i = 3; i < raiz && esPrimo == true; i += 2)
 				if (n % i == 0)
 					esPrimo = false;
@@ -32,7 +32,7 @@ public class ProgramacionModular1 {
 	public static boolean esPrimo2(int n) {
 		boolean esPrimo = true;
 		int raiz = (int) Math.sqrt(n) + 1;
-		if (n % 2 != 0) {
+		if (n % 2 != 0 || n == 2) {
 			for (int i = 3; i < raiz && esPrimo == true; i += 2)
 				if (n % i == 0)
 					esPrimo = false;

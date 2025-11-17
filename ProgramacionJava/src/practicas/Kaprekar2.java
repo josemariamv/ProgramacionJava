@@ -3,7 +3,7 @@ package practicas;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class kaprekar2 {
+public class Kaprekar2 {
 	public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
 		int entrada = 0;

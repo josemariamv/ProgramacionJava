@@ -1,6 +1,5 @@
 package practicas;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Kaprekar3 {
@@ -27,15 +26,22 @@ public class Kaprekar3 {
 	}
 	
 	public static int validarKaprekar() {
+		int numero = 0;
 		
+		return numero;
+				
 	}
 	
 	public static int kaprekarAscendente(int n) {
+		int ascendente = 0;
 		
+		return ascendente;
 	}
 	
 	public static int kaprekarDescendente(int n) {
+		int descendente = 0;
 		
+		return descendente;
 	}
 }
 

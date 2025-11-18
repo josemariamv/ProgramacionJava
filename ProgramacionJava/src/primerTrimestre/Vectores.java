@@ -56,6 +56,9 @@ public class Vectores {
 		// pero existe un bucle for mas cómodo para recorrer arrays:
 		for (double nota: notas)
 			System.out.println(nota);
+		
+		// Poner ejemplo de recorrido de uno de dos dimensiones
+		
  
 		// Los arrays no se pueden asignar normalmente como si fuesen una variable común por ejemplo si hacemos esto:
 		String[] profesores = {"Natalia", "Víctor", "Eduardo", "Félix", "José María"};

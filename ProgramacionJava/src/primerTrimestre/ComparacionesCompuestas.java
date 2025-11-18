@@ -11,7 +11,7 @@ public class ComparacionesCompuestas {
 
 		if (n != 6)
 			System.out.println("n no es igual a 6");
-
+		
 		if (encontrado)
 			System.out.println("Lo he encontrado");
 		

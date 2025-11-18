@@ -1,4 +1,4 @@
-package segundoTrimestre;
+package primerTrimestre;
 
 import java.util.ArrayList;
 import java.util.Iterator;

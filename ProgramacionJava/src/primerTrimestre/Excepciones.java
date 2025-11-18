@@ -29,7 +29,7 @@ public class Excepciones {
 			// caso de que ocurra una excepción en el bloque try. Si en el bloque try
 			// no ocurre ninguna excepción el bloque catch no se ejecuta
 			System.out.println("Ha ocurrido una excepción");
-			// si queremos "recuperar" el error original de la excepción 
+			// si queremos "recuperar" un mensaje de error directamente de la excepción 
 			// podemos hacerlo así:
 			System.out.println(e.getMessage());	
 		}

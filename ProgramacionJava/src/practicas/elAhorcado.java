@@ -1,4 +1,4 @@
-package ejemplos;
+package practicas;
 
 import java.util.Scanner;
 

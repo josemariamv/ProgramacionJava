@@ -15,6 +15,22 @@ public class NumAmigos {
 			perfecto = true;
 		return perfecto;
 	}
+	
+	public static boolean esAbundante(int n1) {
+		boolean abundante = false;
+		int suma1 = devuelveSumaDivPropios(n1);
+		if (suma1 > n1)
+			abundante = true;
+		return abundante;
+	}
+	
+	public static boolean esDefectivo(int n1) {
+		boolean defectivo = false;
+		int suma1 = devuelveSumaDivPropios(n1);
+		if (suma1 < n1)
+			defectivo = true;
+		return defectivo;
+	}
 
 	public static boolean sonAmigos(int n1, int n2) {
 		boolean amigos = false;

@@ -61,5 +61,8 @@ public class OperadoresAritmeticos {
 
 		// Podemos combinar Textos y números para dar una salida compuesta
 		System.out.println("Mi edad es " + edad + " años");
+		
+		// Las potencias se calculan con la funcion pow
+		System.out.println(Math.pow(2, 3));
 	}
 }

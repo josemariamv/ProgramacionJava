@@ -8,8 +8,6 @@ public class poo2 {
 		Pokemon p2 = new Pokemon("Venasaur");
 		Pokemon p3 = new Pokemon ("Ivysaur");
 		
-		
-		//hola
 		p1.setEvolucion(p2);
 		
 		p2.setEvolucion(p3);

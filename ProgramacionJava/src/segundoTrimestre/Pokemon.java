@@ -4,7 +4,7 @@ public class Pokemon {
 	private int codigo;
 	private String nombre;
 	private String[] tipo = new String[2];
-	private int pv;
+	protected int pv;
 	private Pokemon evolucion = null;
 
 	public Pokemon(int c, String n, String t) {
@@ -23,7 +23,7 @@ public class Pokemon {
 	}
 
 	public void mostrar() {
-		System.out.println("---------");
+		System.out.println("------------------");
 		System.out.println(this.codigo + " - " + this.nombre);
 		if (this.tipo[1] == null)
 			System.out.println("Tipo: " + this.tipo[0]);
@@ -32,7 +32,7 @@ public class Pokemon {
 		if (this.evolucion != null)
 			System.out.println("Evoluciona en: " + this.evolucion.nombre);
 		System.out.println("PV: " + this.pv);
-		System.out.println("---------");
+		System.out.println("------------------");
 	}
 
 	public void setEvolucion(Pokemon p) {
@@ -78,4 +78,17 @@ public class Pokemon {
 		return vencedor;
 	}
 
+}
+
+class PokemonLegendario extends Pokemon{
+	public PokemonLegendario(int c, String n, String t) {
+		super(c, n, t);
+		this.pv = (int) ((Math.random() * 201) + 100);
+	}
+	
+	public void mostrar() {
+		System.out.println("------------------");
+		System.out.println("*** LEGENDARIO ***");
+		super.mostrar();
+	}
 }

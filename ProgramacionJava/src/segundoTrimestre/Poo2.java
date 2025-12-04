@@ -1,6 +1,6 @@
 package segundoTrimestre;
 
-public class poo2 {
+public class Poo2 {
 
 	public static void main(String[] args) {
 

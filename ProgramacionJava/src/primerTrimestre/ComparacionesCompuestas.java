@@ -1,5 +1,8 @@
 package primerTrimestre;
 
+// A continuación tienes varios ejemplos con evaluación de condiciones desde las mas simples
+// a algunas con relativa complejidad, por si aún te resultan dificil de entender
+
 public class ComparacionesCompuestas {
 
 	public static void main(String[] args) {

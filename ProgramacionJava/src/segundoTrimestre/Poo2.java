@@ -36,7 +36,7 @@ public class Poo2 {
 		p3.combateContra(p5);
 		p6.combateContra(p4);
 		
-		//equipo2.mostrar();
+		equipo2.mostrar();
 		
 		PokemonLegendario l1 = new PokemonLegendario(151, "Mew", "Psiquico");
 		l1.mostrar();

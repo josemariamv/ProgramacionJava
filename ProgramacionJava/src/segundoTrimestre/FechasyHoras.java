@@ -12,6 +12,8 @@ public class FechasyHoras {
 		LocalDate fecha = LocalDate.now();
 		System.out.println(fecha);
 
+		// Con el objerto DateTimeFormatter lo convertimos en una cadena con el formato deseado
+		// A continuación tienes varios ejemplos
 		DateTimeFormatter formato1 = DateTimeFormatter.ofPattern("dd-MM-yy");
 		String fechaconFormato = fecha.format(formato1);
 		System.out.println("Fecha correctamente formateada: " + fechaconFormato);
@@ -27,7 +29,8 @@ public class FechasyHoras {
 		// Crea un objeto de tipo Localtime y lo inicializa con la hora actual
 		LocalTime hora = LocalTime.now();
 		System.out.println(hora);
-
+		
+		// Y con DateTimeFormatter hacemos lo mismo
 		DateTimeFormatter formato2 = DateTimeFormatter.ofPattern("HH:mm:ss");
 		String horaconFormato = hora.format(formato2);
 		System.out.println("Hora correctamente formateada: " + horaconFormato);
@@ -36,15 +39,16 @@ public class FechasyHoras {
 		horaconFormato = hora.format(formato2);
 		System.out.println("Hora correctamente formateada: " + horaconFormato);
 
-		// Fecha y hora simultaneamente
+		// Por último, el objeto LocalDateTime nos da la Fecha y la hora simultaneamente
 		LocalDateTime fechayHora = LocalDateTime.now();
 		System.out.println(fechayHora);
 
+		// Y también podemos darle formato
 		DateTimeFormatter formato3 = DateTimeFormatter.ofPattern("dd/MM/yy HH:mm");
 		String fechayHoraconFormato = fechayHora.format(formato3);
 		System.out.println("Fecha correctamente formateada: " + fechayHoraconFormato);
 
-		// Inicializarla con una fecha
+		// Podemos inicializar estos objetos con una fecha u hora concreta en lugar de con la actual:
 		LocalDate fechaEspecifica = LocalDate.of(1968, 10, 8);
 		System.out.println(fechaEspecifica);
 		formato1 = DateTimeFormatter.ofPattern("EEEE, dd/MMMM/yy");
@@ -66,7 +70,8 @@ public class FechasyHoras {
 		horaEsp = LocalTime.of(10, 0);
 		System.out.println(horaEsp);
 
-		// Inicializar un objeto tipo fecha u hora a partir de una cadena de texto
+		// O también a partir de una cadena de texto
+		// En este caso especificamos con el objeto DateTimeFormatter el formato de la cadena
 		String fechaTxt = "08/10/1968";
 		DateTimeFormatter formato4 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -79,8 +84,9 @@ public class FechasyHoras {
 		LocalTime hora2 = LocalTime.parse(horaTxt, formato5);
 		System.out.println("Hora: " + hora2);
 
-		// Añadir o restar días u horas
+		// Podemos añadir o restar dias, meses, años, horas, minutos, etc.
 		// Los objetos de fecha y hora son inmutables. No se pueden modificar directamente
+		// Así que los cambios  tenemos que reasignarlos a la misma variable o a otra
 		fechaEspecifica = fechaEspecifica.plusDays(365);
 		System.out.println(fechaEspecifica);
 
@@ -102,7 +108,7 @@ public class FechasyHoras {
 		LocalDate enTresAnyos = hoy.plusYears(3);
 		System.out.println("Dentro de 3 años: " + enTresAnyos);
 
-		// Comparar fechas y horas
+		// Para comparar fechas y horas usamos isBefore, isAfter e isEquals
 		if (fechaEspecifica.isBefore(fecha))
 			System.out.println(fechaEspecifica + " es anterior " + fecha);
 		else
@@ -112,13 +118,22 @@ public class FechasyHoras {
 			System.out.println(fecha + " es posterior " + fechaEspecifica);
 		else
 			System.out.println(fecha + " no es posterior " + fechaEspecifica);
+		
+		if (fecha.isEqual(enTresAnyos))
+			System.out.println(fecha + " es igual a " + enTresAnyos);
+		else
+			System.out.println(fecha + " no es igual a " + enTresAnyos);
 
+		// Importante: LocalTime no tiene la función isEqual. Sólo isAfter e isBefore
 		if (horaEsp.isBefore(hora))
 			System.out.println(horaEsp + " es anterior " + hora);
 		else
 			System.out.println(horaEsp + " no es anterior " + hora);
 
-		// obtener el día, el mes, los minutos, etc.
+
+		// Podemos obtener el día, el mes, los minutos, etc.
+		// Si lo piensas también podemos hacerlo con DateTimeFormatter, pero siempre en modo texto
+		// De esta forma lo obtenemos como enteros
 		System.out.println(hora.getMinute() + " minutos");
 		System.out.println(hora.getHour() + " horas");
 		System.out.println(hora.getSecond() + " segundos");
@@ -130,7 +145,9 @@ public class FechasyHoras {
 		System.out.println(fecha.getYear());
 		System.out.println(fecha.getMonthValue());
 
-		// Es complicado obtenerlo en castellano y tenemos el método visto antes con el formatter
+		// También podemos obterner el dia de la semana y el mes (con texto) pero
+		// es complicado obtenerlo en castellano de esta forma. Aquí si que es mas útil
+		// usar DateTimeFormatter 
 		System.out.println(fecha.getMonth());
 		System.out.println(fecha.getDayOfWeek());
 

@@ -10,7 +10,7 @@ abstract class Abstracta {
 		
 	}
 	
-	// Los métodos abstractos no se definen totalmente.
+	// Los métodos abstractos no se definen, pero es obligatrio hacerlo en las clases hijas
 	abstract void metodo2();
 
 }

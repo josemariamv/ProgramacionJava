@@ -14,11 +14,11 @@ public class Ciclo {
 	}
 	
 	public void anyadeModulo(Modulo m) {
-		if(m.getCurso() == 1) {
+		if(m.getCurso() == 1 && numModulosPrimero!=8) {
 			primero[this.numModulosPrimero] = m; 
 			numModulosPrimero++;
 		}
-		else {
+		else if (numModulosSegundo!=8){
 			segundo[this.numModulosSegundo] = m; 
 			numModulosSegundo++;
 		}

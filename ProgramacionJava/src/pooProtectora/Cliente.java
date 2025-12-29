@@ -21,6 +21,8 @@ public class Cliente {
 		this.interes = interes;
 	}
 
+	// cuando un cliente adopta un perro primero comprobamos si no ha sobrepasado ya los dos máximo
+	// si no ha sido así lo marcamos como adoptado y referenciamos el animal en los arrays que tiene cada cliente
 	public void adopta(Perro perro) {
 		if (perros!=null && perros.length == 2)
 			System.out.println("Este cliente ya ha adoptado dos perros");
@@ -36,6 +38,7 @@ public class Cliente {
 		}
 	}
 
+	// El resto de animales es igual
 	public void adopta(Gato gato) {
 		if (gatos!=null && gatos.length == 3)
 			System.out.println("Este cliente ya ha adoptado tres gatos");
@@ -62,6 +65,8 @@ public class Cliente {
 			System.out.println("\nEste cliente ya ha adoptado una tortuga");
 	}
 
+	// Para listar los animales adoptados por un cliente recorremos los arrays (la tortuga es un dato simple)
+	// y llamamos a la función que muestra sus datos en consola que ya usamos en el listado de la protectora
 	public void listaAdoptados() {
 		System.out.println("\nCliente: " + nombre + " " + apellidos + " (" + telefono + ")");
 		if(perros!=null) {
@@ -73,7 +78,6 @@ public class Cliente {
 			System.out.println("Gatos adoptados:");
 			for(Gato gato:this.gatos)
 				gato.datos();
-
 		}
 		if(tortuga!=null) {
 			System.out.println("Tortuga adoptada:");

@@ -12,6 +12,7 @@ public class Protectora {
 	private Tortuga[] tortugas = null;
 	private Cliente[] clientes = null;
 	
+	// Cada vez que llega un nuevo perro a la protectora creamos el objeto y lo añadimos a la lista de perros de la protectora
 	// fijate que no es necesario usar this delante de los atributos cuando no hay problema de que se confunda con otra variable
 	public Perro nuevoPerro(int nacimiento, boolean vacunado, String nombre) {
 		if(perros == null)
@@ -22,6 +23,7 @@ public class Protectora {
 		return perros[perros.length-1]; 
 	}
 	
+	// tenemos que crear dos métodos diferentes para que se correspondan con los dos constructores que hemos creado (con nombre o sin el)
 	public Perro nuevoPerro(int nacimiento, boolean vacunado) {
 		if(perros == null)
 			perros = new Perro[1];
@@ -31,6 +33,7 @@ public class Protectora {
 		return perros[perros.length-1];
 	}
 	
+	// el resto de animales son similares a los perros
 	public Gato nuevoGato(int nacimiento, boolean vacunado, String nombre) {
 		if(gatos == null)
 			gatos = new Gato[1];
@@ -67,6 +70,9 @@ public class Protectora {
 		return tortugas[tortugas.length-1];
 		}
 	
+	// Los listados de animales no adoptados consisten en recorrer los tres arrays y mostrar los datos de los no adoptados
+	// para eso hemos creado dos métodos: uno en Animal que nos dice si está adoptado o no
+	// y otro en cada tipo de animal que nos muestra sus datos por consola)
 	public void listarNoAdoptados() {
 		System.out.println("\nPerros no adoptados");
 		System.out.println("###################");

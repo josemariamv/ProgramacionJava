@@ -3,6 +3,8 @@ package pooProtectora;
 public class Main {
 
 	public static void main(String[] args) {
+		// Como siempre, procuramos que nuestro programa sea limpio y legible a simple vista
+		// y escondemos toda la complejidad en los métodos de las diferentes clases
 		Protectora goya = new Protectora();
 		Perro p1 = goya.nuevoPerro(2024, true, "Tobi");
 		Perro p2 = goya.nuevoPerro(2025, false);

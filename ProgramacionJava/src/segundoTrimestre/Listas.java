@@ -84,7 +84,9 @@ public class Listas {
 		System.out.println(numeros);
 		
 		// Borra la primera ocurrencia del 'Elemento' que se le pasa como parametro.  
+		notas.remove(3.33);
 		numeros.remove((Integer)15);
+		System.out.println(notas);
 		System.out.println(numeros);
 		
 		// Borra todos los elementos de ArrayList   

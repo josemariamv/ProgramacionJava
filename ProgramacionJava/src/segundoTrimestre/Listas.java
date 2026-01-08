@@ -83,11 +83,19 @@ public class Listas {
 		numeros.remove(1);
 		System.out.println(numeros);
 		
-		// Borra la primera ocurrencia del 'Elemento' que se le pasa como parametro.  
+		// Casca si la posición 10 no existe
+		// numeros.remove(10);
+		
+		// Borra la primera ocurrencia del elemento que se le pasa como parametro.  
 		notas.remove(3.33);
+		// En el caso de un arraylist de enteros hay que ponerle el cast si no intentará borrar el elemento en la posición 15 
 		numeros.remove((Integer)15);
 		System.out.println(notas);
 		System.out.println(numeros);
+		
+		// en este caso devuelve false si el elemento no existe
+		if(textos.remove("Hola") == false)
+			System.out.println("No puedo borrar un elemento que no existe");
 		
 		// Borra todos los elementos de ArrayList   
 		numeros.clear();
@@ -100,5 +108,7 @@ public class Listas {
 		ArrayList textos2 = (ArrayList) textos.clone();
 		System.out.println(textos);
 		System.out.println(textos2);
+		
+		// Por supuesto que podemos usar ArrayList e Iterators con nuestros propios objetos. ¿Lo intentamos en el problema de la lista de Tareas?
 	}
 }

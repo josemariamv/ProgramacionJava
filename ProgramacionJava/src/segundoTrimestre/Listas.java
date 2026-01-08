@@ -23,6 +23,7 @@ public class Listas {
 		ArrayList<Double> notas = new ArrayList<>(List.of(1.5, 3.33, 7.5));
 		
 		// Las listas  son similares a los ArrayList pero son inmutables (como las tuplas de python)
+		// No vamos a verlas mas allá de saber como se crea una. Así:
 		List<Double> tupla = List.of(1.5, 2.5, 3.5);
 
 		// add añade un elemento al final
@@ -33,6 +34,8 @@ public class Listas {
 		
 		textos.add("Hola mundo cruel");
 		textos.add("Adios, me despido de la vida");
+		
+		notas.add(6.5);
 		
 		// esto no puede hacerse. Ya hemos dicho que son inmutables!
 		// tupla.add(3.3)
@@ -95,6 +98,5 @@ public class Listas {
 		ArrayList textos2 = (ArrayList) textos.clone();
 		System.out.println(textos);
 		System.out.println(textos2);
-				
 	}
 }

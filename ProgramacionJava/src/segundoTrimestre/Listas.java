@@ -103,7 +103,11 @@ public class Listas {
 		System.out.println(textos);
 		System.out.println(textos2);
 
-		// Para recorrer un ArrayList necesitamos usar un Iterator
+		// Para recorrer un ArrayList de forma clásica:
+		for(int i=0; i<textos.size();i++)
+			System.out.println(textos.get(i));
+		
+		// También podemos usar un Iterator
 		Iterator<String> iterador = textos.iterator();
 		
 		// hasNext devuelve false cuando ya no haya mas elementos en el ArrayList

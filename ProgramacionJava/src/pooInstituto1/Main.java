@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Profesor profe1 = new Profesor("José María", "Morales Vázquez", "Informática");
-		//Profesor profe2 = new Profesor("Pepa", "Cano", "Filosofía");
+		Profesor profe2 = new Profesor("Pepa", "Cano", "Filosofía");
 		
 		Alumno alumno1 = new Alumno("Mario", "Carcalete", 17);
 		Alumno alumno2 = new Alumno("Andrea", "Coronado", 24);
@@ -20,7 +20,7 @@ public class Main {
 		dam.anyadeModulo(python);
 		
 		Grupo dam1 = new Grupo("DAM1", dam, 1, 4);
-		//dam1.anyadeTutor(profe1);
+		dam1.anyadeTutor(profe1);
 		dam1.anyadeAlumno(alumno1);
 		dam1.anyadeAlumno(alumno2);
 		dam1.anyadeAlumno(alumno3);

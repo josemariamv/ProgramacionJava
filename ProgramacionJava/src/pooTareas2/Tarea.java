@@ -2,6 +2,8 @@ package pooTareas2;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 public class Tarea {
 	private String titulo;
@@ -10,24 +12,16 @@ public class Tarea {
 	private LocalDate fecha;
 	private boolean completada = false;
 	
-	private static Tarea[] lista = null; 
+	//private static Tarea[] lista = null; 
+	private static ArrayList<Tarea> lista = new ArrayList<>();
 	
 	public Tarea(String tit, String desc, String col) {
 		titulo = tit;
 		descripcion = desc;
 		color = col;
 		fecha = LocalDate.now();
-		if(lista == null) {
-			// inicializo la lista con un elemento y copio en el la tarea
-			lista = new Tarea[1];
-			lista[0] = this;
+		lista.add(this);
 		}
-		else {
-			// aumento en una posicion la lista y copio en el la tarea
-			lista = Arrays.copyOf(lista, lista.length+1);
-			lista[lista.length-1] = this;
-		}
-	}
 	
 	public void mostrar() {
 		System.out.println(titulo + "(" + color + ")");
@@ -41,10 +35,6 @@ public class Tarea {
 		completada = true;
 	}
 	
-	public void eliminar() {
-		
-	}
-	
 	public static void motrarTareasNoCompletadas() {
 		for(Tarea tarea: lista)
 			if(tarea.completada == false)
@@ -52,7 +42,17 @@ public class Tarea {
 		}
 	
 	public static void motrarTareas() {
-		for(Tarea tarea: lista)
-			tarea.mostrar();
+		Iterator<Tarea> iterador = lista.iterator();
+		while(iterador.hasNext()) {
+			Tarea t = iterador.next();
+			t.mostrar();
+		}
+		//for(Tarea tarea: lista)
+		//	tarea.mostrar();
+	}
+	
+	public void eliminarTarea() {
+		if(lista.remove(this) == false)
+			System.out.println("No puedo eliminar la tarea. No existe");
 	}
 }

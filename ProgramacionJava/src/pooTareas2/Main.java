@@ -8,8 +8,8 @@ public class Main {
 		 //t1.mostrar();
 		 //t2.mostrar();
 		 t2.marcarComoCompletada();
-		 t1.eliminar();
-		 Tarea.motrarTareasNoCompletadas();
+		 t3.eliminarTarea();
+		 t3.eliminarTarea();
 		 Tarea.motrarTareas();
 	}
 }

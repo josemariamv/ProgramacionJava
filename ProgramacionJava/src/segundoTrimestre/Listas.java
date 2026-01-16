@@ -107,6 +107,10 @@ public class Listas {
 		for(int i=0; i<textos.size();i++)
 			System.out.println(textos.get(i));
 		
+		// O así:
+		for(String txt:textos)
+			System.out.println(txt);
+		
 		// También podemos usar un Iterator
 		Iterator<String> iterador = textos.iterator();
 		

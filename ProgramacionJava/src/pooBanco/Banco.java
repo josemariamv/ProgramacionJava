@@ -3,9 +3,9 @@ package pooBanco;
 import java.util.ArrayList;
 
 public class Banco {
-	String nombre;
-	String codigo;
-	ArrayList<Sucursal> sucursales = new ArrayList<>();
+	private String nombre;
+	private String codigo;
+	private ArrayList<Sucursal> sucursales = new ArrayList<>();
 	
 	public Banco(String nombre, String codigo) {
 		this.nombre = nombre;
@@ -19,7 +19,11 @@ public class Banco {
 	public void listarSucursales() {
 		System.out.println("Banco: " + this.nombre + " / Código: (" + this.codigo + ")");
 		for(Sucursal s: sucursales) {
-			System.out.println("-" + s.ciudad + "(" + s.codigo + ")");
+			System.out.println("-" + s.getCiudad() + "(" + s.getCodigo() + ")");
 		}
+	}
+	
+	public String getCodigo() {
+		return this.codigo;
 	}
 }

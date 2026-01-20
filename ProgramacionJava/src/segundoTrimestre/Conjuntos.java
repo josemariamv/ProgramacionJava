@@ -119,7 +119,6 @@ public class Conjuntos {
 			j++;
 		}
 		for (int n: masNumeros)
-			System.out.print(n + " - ");
-		
+			System.out.print(n + " - ");	
 	}
 }

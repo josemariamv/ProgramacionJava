@@ -88,5 +88,38 @@ public class Conjuntos {
 		personas.add("Félix Sotelo");
 		System.out.println(profes.containsAll(personas));
 		
+		// Pasar de array a HashSet
+		String[] nombres = {"Pepe", "Juan", "Eva", "Ana"};
+		HashSet<String> setNombres = new HashSet<>(Arrays.asList(nombres));
+		System.out.println(setNombres);
+		
+		// Un array de enteros no es tan sencillo ya que no coinciden los tipos Int-Integer
+		// Lo mas fácil es hacerlo con un bucle como en ArrayList
+		// Este método funciona también con cualquier tipo
+		int[] arrayNumeros = {1,23,5,7,5, 9};
+		HashSet<Integer> listaNumeros = new HashSet<>();
+		for(int n:arrayNumeros)
+			listaNumeros.add(n);
+		System.out.println(listaNumeros);
+		
+		// Pasar un HashSet a Array
+		HashSet<String> frutasSet = new HashSet<>(Arrays.asList("Pera", "Manzana", "Fresa"));
+		String[] frutasArray = frutasSet.toArray(new String[0]);
+		for (String f: frutasArray)
+			System.out.print(f + " - ");
+		
+		System.out.println("---");
+		
+		// De enteros tenemos el mismo problema de siempre con la conversion Integer-Int
+		// Es mas fácil con un bucle
+		int masNumeros[] = new int[listaNumeros.size()];
+		int j=0;
+		for(int n:listaNumeros) {
+			masNumeros[j] = n;
+			j++;
+		}
+		for (int n: masNumeros)
+			System.out.print(n + " - ");
+		
 	}
 }

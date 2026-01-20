@@ -1,6 +1,8 @@
 package segundoTrimestre;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
@@ -124,5 +126,41 @@ public class Listas {
 
 		// Por supuesto que podemos usar ArrayList e Iterators con nuestros propios
 		// objetos. ¿Lo intentamos en el problema de la lista de Tareas?
+		
+		// Convertir un array en un ArrayList	
+		String[] frutas = {"Manzana", "Pera", "Platano"};
+		ArrayList<String> otrasFrutas = new ArrayList<>(Arrays.asList(frutas));
+		
+		System.out.println(otrasFrutas);
+		
+		// Un array de enteros no es tan sencillo ya que no coinciden los tipos Int-Integer
+		// Lo mas fácil es hacerlo con un bucle y haciendo adds
+		// Este método es sencillo y funciona con cualquier tipo de dato (con el anterior también)
+		int[] arrayNumeros = {1,23,5,7,9};
+		ArrayList<Integer> listaNumeros = new ArrayList<>();
+		for(int n:arrayNumeros)
+			listaNumeros.add(n);
+		System.out.println(listaNumeros);
+		
+		// Convertir ArrayList en Array
+		ArrayList<String> nombres = new ArrayList<>(Arrays.asList("Pepe", "Juan", "Eva", "Ana"));
+		String[] nombresArray = nombres.toArray(new String[0]);
+		for (String n: nombresArray)
+			System.out.print(n + " - ");
+		
+		System.out.println("---");
+
+		// Uno de enteros ahora
+		ArrayList<Integer> masNumeros = new ArrayList<>(List.of(5, 7, 14, 56, 8));
+		int masNumeros2[] = new int[masNumeros.size()];
+		
+		int j=0;
+		for(int n:masNumeros) {
+			masNumeros2[j] = n;
+			j++;
+		}
+		for (int n: masNumeros2)
+			System.out.print(n + " - ");
+
 	}
 }

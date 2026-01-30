@@ -4,6 +4,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+class Ejemplo{
+	private int dato1;
+	private String dato2;
+	
+	public Ejemplo() {
+		
+	}
+}
+
 /*
  * HashMap es una estructura de datos que almacena información en pares de clave-valor. Similar a los diccionarios de Python
  * Ideal cuando necesitas buscar datos de forma instantánea usando un identificador único (la clave) en lugar de un índice numérico.
@@ -22,6 +31,21 @@ public class Diccionarios {
 		
 		// Si uso put con una clave que ya existe no da error ni crea una nueva: sobreescribe el valor
 		fruteria.put("Peras de agua", 10.25);
+		
+		// Podemos crear diccionarios con cualquier tipo de clave y de valor
+		HashMap<Integer, String> personas = new HashMap<>();
+		personas.put(655112233, "José María Morales");
+		
+		HashMap<String, String> personas2 = new HashMap<>();
+		personas2.put("28888777X", "José María Morales");
+
+		// O incluso con objetos
+		HashMap<Integer, Ejemplo> objetos = new HashMap<>();
+		Ejemplo ej1 = new Ejemplo();
+		objetos.put(1, ej1);
+
+		HashMap<Ejemplo, String> objetos2 = new HashMap<>();
+		objetos2.put(ej1, "HOLA");
 		
 		// Podemos comprobar previamente si el elemento existe así:
 		if(fruteria.containsKey("Fresas"))

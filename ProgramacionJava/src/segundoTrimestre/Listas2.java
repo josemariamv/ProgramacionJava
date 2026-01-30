@@ -41,6 +41,18 @@ public class Listas2 {
         int veces = Collections.frequency(numeros, 22);
         System.out.println("El número 22 aparece " + veces + " veces");
 		
+        
+        // Estos ejemplos sirven con listas con otros tipos de elementos... pero habría que estudiar con objetos como funciona en cada caso!
+        ArrayList<String> alumnos = new ArrayList<>();
+		Collections.addAll(alumnos, "Eva", "Pepe", "Andrés", "Aurora");
+		Collections.shuffle(alumnos);
+		System.out.println(alumnos);
+		System.out.println(Collections.max(alumnos));
+		System.out.println(Collections.min(alumnos));
+		Collections.reverse(alumnos);
+		System.out.println(alumnos);
+		Collections.sort(alumnos);
+		System.out.println(alumnos);
 	}
 	
 }

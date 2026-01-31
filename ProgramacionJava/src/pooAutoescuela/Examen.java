@@ -5,8 +5,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Examen {
-	
-	private HashSet<Pregunta> preguntasExamen = new HashSet<>();
+		private HashSet<Pregunta> preguntasExamen = new HashSet<>();
 
 	public Examen(int numPreguntas, ArrayList<Pregunta> listaPreguntas) {
 		// Habría que comprobar que el número de preguntas no es superior a la lista de preguntas

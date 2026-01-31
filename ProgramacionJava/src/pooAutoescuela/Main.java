@@ -1,6 +1,7 @@
 package pooAutoescuela;
 
 public class Main {
+	
 	public static void main(String[] args) {
 		new Pregunta("¿Qué señales son azules?", "informativas", "peligro", "no hay señales azules");
 		new Pregunta("¿Velocidad máxima en autopistas?", "120", "60", "la que de tu coche");

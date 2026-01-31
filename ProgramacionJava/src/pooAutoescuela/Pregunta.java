@@ -3,8 +3,7 @@ package pooAutoescuela;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class Pregunta {
-	
+public class Pregunta {	
 	private static ArrayList<Pregunta> preguntas = new ArrayList<>();
 	private String texto;
 	private String correcta;

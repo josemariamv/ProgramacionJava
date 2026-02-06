@@ -22,4 +22,8 @@ public class Medico extends Persona{
 		this.contadorCitas++;
 	}
 	
+	public void decrementaContadorCitas() {
+		this.contadorCitas--;
+	}
+	
 }

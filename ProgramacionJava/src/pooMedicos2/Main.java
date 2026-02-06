@@ -26,5 +26,12 @@ public class Main {
 		especialidad1.listarMedicos();
 		especialidad2.listarMedicos();
 		especialidad3.listarMedicos();
+		
+		paciente1.anulaCita(especialidad3);
+		paciente1.anulaCita(especialidad2);
+		
+		especialidad1.listarMedicos();
+		especialidad2.listarMedicos();
+		especialidad3.listarMedicos();
 	}
 }

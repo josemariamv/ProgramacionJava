@@ -28,7 +28,7 @@ public class Main {
 		Arbitro arbitro2 = new Arbitro("Andrea");
 		Arbitro arbitro3 = new Arbitro("Jorge");
 		
-		
+		laLiga.verClasificacion();
 		
 	}
 }

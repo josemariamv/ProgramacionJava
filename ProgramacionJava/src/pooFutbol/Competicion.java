@@ -36,6 +36,9 @@ public class Competicion {
 				"GC", "DIF");
 		System.out.println("-----------------------------------------------------------------------");
 		// 2. Convertimos el HashSet a una Lista y la ordenamos
+		// 2.1 Método de selección
+		
+		// 2.2 Método de la burbuja
 		
 		// 3. Imprimir cada fila
 		for (Equipo e : listaEquipos) {

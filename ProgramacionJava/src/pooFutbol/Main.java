@@ -30,6 +30,10 @@ public class Main {
 		
 		Partido p1 = new Partido(elMadrid, Betis);
 		p1.resultado(0, 3);
+		Partido p2 = new Partido(Barca, Sevilla);
+		p2.resultado(2, 2);
+		Partido p3 = new Partido (Atleti, Rayo);
+		p3.resultado(1, 0);
 		
 		laLiga.verClasificacion();
 		

@@ -13,6 +13,25 @@ public class Equipo {
 	private int golesEnContra = 0;
 	private Entrenador entrenador;
 	private HashSet<Jugador> alineacion = new HashSet<>();
+	
+	public void ganaPartido() {
+		this.partidosGanados++;
+		this.puntos+=3;
+	}
+	
+	public void pierdePartido() {
+		this.partidosPerdidos++;
+	}
+	
+	public void empataPartido() {
+		this.partidosEmpatados++;
+		this.puntos+=1;
+	}
+	
+	public void modificaGoles(int aFavor, int enContra) {
+		this.golesAFavor += aFavor;
+		this.golesEnContra += enContra;
+	}
 
 	public Equipo(String nombre) {
 		this.nombre = nombre;

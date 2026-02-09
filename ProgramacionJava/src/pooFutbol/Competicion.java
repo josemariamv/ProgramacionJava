@@ -27,7 +27,7 @@ public class Competicion {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yy");
 		String fechaDeHoy = fecha.format(formato);
 		System.out.println("-----------------------------------------------------------------");
-		System.out.println(" Competición: " + this.nombre + " Clasificación a día " + fechaDeHoy);
+		System.out.println(" Competición: " + this.nombre + " - Clasificación a día " + fechaDeHoy);
 		System.out.println("-----------------------------------------------------------------");
 		System.out.printf("%-25s | %3s | %2s | %2s | %2s | %2s | %3s | %3s\n", " EQUIPO", "Pts", 
 				"PJ", "PG", "PE", "PP", "GF", "GC" );

@@ -28,6 +28,9 @@ public class Main {
 		Arbitro arbitro2 = new Arbitro("Andrea");
 		Arbitro arbitro3 = new Arbitro("Jorge");
 		
+		Partido p1 = new Partido(elMadrid, Betis);
+		p1.resultado(0, 3);
+		
 		laLiga.verClasificacion();
 		
 	}

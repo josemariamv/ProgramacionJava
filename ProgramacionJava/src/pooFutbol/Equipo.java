@@ -30,15 +30,15 @@ public class Equipo {
 		return nombre;
 	}
 
-	public int getPartidosGanados() {
+	public int getPG() {
 		return partidosGanados;
 	}
 
-	public int getPartidosPerdidos() {
+	public int getPP() {
 		return partidosPerdidos;
 	}
 	
-	public int getPartidosEmpatados() {
+	public int getPE() {
 		return partidosEmpatados;
 	}
 
@@ -46,11 +46,11 @@ public class Equipo {
 		return puntos;
 	}
 
-	public int getGolesAFavor() {
+	public int getGF() {
 		return golesAFavor;
 	}
 
-	public int getGolesEnContra() {
+	public int getGC() {
 		return golesEnContra;
 	}
 }

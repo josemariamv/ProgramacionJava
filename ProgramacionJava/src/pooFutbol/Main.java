@@ -28,12 +28,19 @@ public class Main {
 		Arbitro arbitro2 = new Arbitro("Andrea");
 		Arbitro arbitro3 = new Arbitro("Jorge");
 		
+/* Por terminar: crear el objeto jornada que haga los emparejamientos
+		Jornada j1 = new Jornada(laLiga);
+		
+		j1.resultadosPartido(1,0,3);
+		j1.resultadosPartido(2,5,0);
+		j1.resultadosPartido(3,2,2);
+*/		
 		Partido p1 = new Partido(elMadrid, Betis);
-		p1.resultado(0, 3);
 		Partido p2 = new Partido(Barca, Sevilla);
-		p2.resultado(2, 2);
-		Partido p3 = new Partido (Atleti, Rayo);
-		p3.resultado(1, 0);
+		Partido p3 = new Partido(Rayo, Atleti);	
+		p1.resultado(0, 3);
+		p2.resultado(5, 0);
+		p3.resultado(2, 2);
 		
 		laLiga.verClasificacion();
 		

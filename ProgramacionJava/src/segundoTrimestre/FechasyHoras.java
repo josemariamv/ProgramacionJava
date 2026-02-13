@@ -61,7 +61,6 @@ public class FechasyHoras {
 		formato1 = DateTimeFormatter.ofPattern("MMMM");
 		fechaconFormato = fechaEspecifica.format(formato1);
 		System.out.println("Mes: " + fechaconFormato);
-		
 
 		LocalTime horaEsp = LocalTime.of(10, 15);
 		System.out.println(horaEsp);
@@ -74,7 +73,6 @@ public class FechasyHoras {
 		// En este caso especificamos con el objeto DateTimeFormatter el formato de la cadena
 		String fechaTxt = "08/10/1968";
 		DateTimeFormatter formato4 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
 		LocalDate fecha2 = LocalDate.parse(fechaTxt, formato4);
 		System.out.println("Fecha: " + fecha2);
 

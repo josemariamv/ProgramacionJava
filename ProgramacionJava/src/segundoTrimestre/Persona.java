@@ -28,9 +28,12 @@ public class Persona {
 		numPersonas++;
 	}
 	
+	// cuando una clase tiene mas de un constructor no tenemos porque repetir código
 	public Persona(String nomb, String ape, int ed) {
-		this.nombre = nomb;
-		this.apellidos = ape;
+		/*this.nombre = nomb;
+		this.apellidos = ape;*/
+		this(nomb, ape);
+		
 		this.edad = ed;
 		numPersonas++;
 	}

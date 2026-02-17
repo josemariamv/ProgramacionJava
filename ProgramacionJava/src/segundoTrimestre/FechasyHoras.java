@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.Period;
 
 public class FechasyHoras {
 	public static void main(String[] args) {
@@ -148,6 +149,11 @@ public class FechasyHoras {
 		// usar DateTimeFormatter 
 		System.out.println(fecha.getMonth());
 		System.out.println(fecha.getDayOfWeek());
-
+		
+		// Podemos obtener un período temporal entre dos fechas usando la clase Period
+		LocalDate fechaNacimiento = LocalDate.of(1968, 10, 8);
+		hoy = LocalDate.now();
+		Period periodo = Period.between(fechaNacimiento, hoy);
+		System.out.println("Tienes " + periodo.getYears()  + " años");
 	}
 }

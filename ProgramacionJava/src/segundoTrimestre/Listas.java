@@ -123,6 +123,11 @@ public class Listas {
 			String elemento = iterador.next();
 			System.out.println(elemento);
 		}
+		
+		// Los iterators son la única forma segura de elminiar un elemento de una colección
+		// dentro del bucle, pero para hacerlo usamos el método remove del iterator y no el de la colección
+		// iterador.remove() 
+		// La linea anterior borra el elemento actual que esté recorriendo el iterator
 
 		// Por supuesto que podemos usar ArrayList e Iterators con nuestros propios
 		// objetos. ¿Lo intentamos en el problema de la lista de Tareas?

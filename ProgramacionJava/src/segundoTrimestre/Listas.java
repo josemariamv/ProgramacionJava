@@ -126,7 +126,7 @@ public class Listas {
 		
 		// Los iterators son la única forma segura de elminiar un elemento de una colección
 		// dentro del bucle, pero para hacerlo usamos el método remove del iterator y no el de la colección
-		// iterador.remove() 
+		// iterador.remove()
 		// La linea anterior borra el elemento actual que esté recorriendo el iterator
 
 		// Por supuesto que podemos usar ArrayList e Iterators con nuestros propios
@@ -135,7 +135,6 @@ public class Listas {
 		// Convertir un array en un ArrayList	
 		String[] frutas = {"Manzana", "Pera", "Platano"};
 		ArrayList<String> otrasFrutas = new ArrayList<>(Arrays.asList(frutas));
-		
 		System.out.println(otrasFrutas);
 		
 		// Un array de enteros no es tan sencillo ya que no coinciden los tipos Int-Integer

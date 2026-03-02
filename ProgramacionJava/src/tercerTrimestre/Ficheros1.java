@@ -29,9 +29,18 @@ public class Ficheros1 {
 			BufferedReader lector = new BufferedReader(fichero);
 
 			String linea;
+			
 			while ((linea = lector.readLine()) != null) {
 				System.out.println(linea);
 			}
+			// también podríamos usar un do while
+			/*
+			do{
+				linea = lector.readline();
+				if(linea!=null)
+					System.out.println(linea);
+			}while(linea!=null);
+			*/
 			lector.close();
 			// } catch (IOException e) {
 			// } catch (IOException e) {
@@ -39,8 +48,21 @@ public class Ficheros1 {
 			System.out.println("Error al leer: " + e.getMessage());
 		}
 	}
-
+	
 	public static void lectura2() {
+		try (BufferedReader lector = new BufferedReader(new FileReader("/mnt/temp/quijote.txt"))) {
+			String linea;
+			while ((linea = lector.readLine()) != null) {
+				System.out.println(linea);
+			}
+			lector.close();
+		} catch (Exception e) {
+			System.out.println("Error al leer: " + e.getMessage());
+			// e.printStackTrace();
+		}
+	}
+
+	public static void lectura3() {
 		try {
 			File fichero = new File("/mnt/temp/quijote.txt");
 			Scanner scanner = new Scanner(fichero);
@@ -55,22 +77,8 @@ public class Ficheros1 {
 		}
 	}
 
-	public static void lectura3() {
-		try (BufferedReader lector = new BufferedReader(new FileReader("/mnt/temp/quijote.txt"))) {
-			String linea;
-			while ((linea = lector.readLine()) != null) {
-				System.out.println(linea);
-			}
-			// con este método no hace falta cerrar el recurso. Se cierra solo cuando deja
-			// de usarse.
-		} catch (Exception e) {
-			System.out.println("Error al leer: " + e.getMessage());
-			// e.printStackTrace();
-		}
-	}
-
 	public static void lectura4() {
-		Path ruta = Path.of("/mnt/temp/quijote.txt");
+		Path ruta = Path.of("/home/josemaria/quijote.txt");
 		try {
 			// List<String> lineas = Files.readAllLines(ruta);
 			ArrayList<String> lineas = (ArrayList)Files.readAllLines(ruta);
@@ -85,7 +93,7 @@ public class Ficheros1 {
 	}
 
 	public static void lectura5() {
-		Path ruta = Path.of("/mnt/temp/quijote.txt");
+		Path ruta = Path.of("/home/josemaria/quijote.txt");
 		try {
 			// leemos todo el contenido de una vez
 			String contenido = Files.readString(ruta);

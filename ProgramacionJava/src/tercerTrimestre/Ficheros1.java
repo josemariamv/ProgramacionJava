@@ -1,4 +1,5 @@
 package tercerTrimestre;
+
 /*
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,6 +8,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 */
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Ficheros1 {
@@ -14,6 +19,8 @@ public class Ficheros1 {
 		lectura1();
 		lectura2();
 		lectura3();
+		lectura4();
+		lectura5();
 	}
 
 	public static void lectura1() {
@@ -26,9 +33,9 @@ public class Ficheros1 {
 				System.out.println(linea);
 			}
 			lector.close();
-		//} catch (IOException e) {
-		//} catch (IOException e) {
-		}catch (Exception e) {
+			// } catch (IOException e) {
+			// } catch (IOException e) {
+		} catch (Exception e) {
 			System.out.println("Error al leer: " + e.getMessage());
 		}
 	}
@@ -54,10 +61,37 @@ public class Ficheros1 {
 			while ((linea = lector.readLine()) != null) {
 				System.out.println(linea);
 			}
-			// con este método no hace falta cerrar el recurso. Se cierra solo cuando deja de usarse.
+			// con este método no hace falta cerrar el recurso. Se cierra solo cuando deja
+			// de usarse.
 		} catch (Exception e) {
 			System.out.println("Error al leer: " + e.getMessage());
 			// e.printStackTrace();
+		}
+	}
+
+	public static void lectura4() {
+		Path ruta = Path.of("/mnt/temp/quijote.txt");
+		try {
+			// List<String> lineas = Files.readAllLines(ruta);
+			ArrayList<String> lineas = (ArrayList)Files.readAllLines(ruta);
+
+			// Leemos todo el contenido como una lista de líneas
+			for (String linea : lineas) {
+				System.out.println(linea);
+			}
+		} catch (Exception e) {
+			System.out.println("Error al leer: " + e.getMessage());
+		}
+	}
+
+	public static void lectura5() {
+		Path ruta = Path.of("/mnt/temp/quijote.txt");
+		try {
+			// leemos todo el contenido de una vez
+			String contenido = Files.readString(ruta);
+			System.out.print(contenido);
+		} catch (Exception e) {
+			System.out.println("Error al leer: " + e.getMessage());
 		}
 	}
 }

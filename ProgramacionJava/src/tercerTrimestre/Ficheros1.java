@@ -19,6 +19,8 @@ public class Ficheros1 {
 		// En ambos y en el método 3 leemos el fichero linea a línea
 		lectura1();
 		lectura2();
+		// de esta forma el fichero se cierra al terminar su uso y evitamos tener que hacerlo nosotros
+		lectura2bis();
 		// usamos la clase Scanner que ya conocemos para leer del fichero
 		lectura3();
 		// Leemos el fichero de una vez y lo guardamos, línea a línea, en una lista
@@ -28,6 +30,7 @@ public class Ficheros1 {
 	}
 
 	public static void lectura1() {
+		System.out.println("lectura1");
 		// Tratar las excepciones es obligatorio cuando se trabaja con ficheros
 		try {
 			// necesitamos dos objetos. FileReader simboliza al ficharo. Recibe como argumento el nombre 
@@ -59,6 +62,7 @@ public class Ficheros1 {
 	}
 	
 	public static void lectura2() {
+		System.out.println("lectura2");
 		// Este método es similar al anterior, pero mas compacto
 		try {
 			// Creamos en la misma sentencia los dos objetos que necesitamos
@@ -74,7 +78,21 @@ public class Ficheros1 {
 		}
 	}
 
+	public static void lectura2bis() {
+		System.out.println("lectura2bis");
+		// Aún mas compacto y nos ahorramos cerrar el fichero: se cierra solo
+		try(BufferedReader lector = new BufferedReader(new FileReader("/mnt/temp/quijote.txt"))) {
+			String linea;
+			while ((linea = lector.readLine()) != null) {
+				System.out.println(linea);
+			}
+		} catch (Exception e) {
+			System.out.println("Error al leer: " + e.getMessage());
+		}
+	}
+
 	public static void lectura3() {
+		System.out.println("lectura3");
 		try {
 			// En este método vamos a usar la clase Scanner que ya conocemos de cuando leíamos del teclado
 			// La clase File simboliza al fichero y scanner será nuestro cursor
@@ -95,10 +113,11 @@ public class Ficheros1 {
 	}
 
 	public static void lectura4() {
+		System.out.println("lectura4");
 		// En este método leeremos el fichero de una vez y lo guardaremos en un ArrayList donde cada elemento
 		// es una línea del fichero. Necesitamos el objeto Path que simboliza la ruta al fichero
 		// Path no necesitar ir dentro de la excepción
-		Path ruta = Path.of("/home/josemaria/quijote.txt");
+		Path ruta = Path.of("/mnt/temp/quijote.txt");
 		ArrayList<String> lineas = null;
 		try {
 			// El método readAllLines lee el fichero completamente y luego lo cierra y almacena el contenido en un List
@@ -112,14 +131,15 @@ public class Ficheros1 {
 		}
 		// Para procesar el contenido, trabajamos con el ArrayList
 		// También ha suprimido por nosotros los saltos de línea finales de cada línea
-		for (String linea : lineas) {
-			System.out.println(linea);
-		}
+		if(lineas!=null)
+			for (String linea : lineas)
+				System.out.println(linea);
 	}
 
 	public static void lectura5() {
+		System.out.println("lectura5");
 		// El último método lee todo el contenido del fichero como un único String
-		Path ruta = Path.of("/home/josemaria/quijote.txt");
+		Path ruta = Path.of("/mnt/temp/quijote.txt");
 		String contenido = null;
 		try {
 			// leemos todo el contenido de una vez en un String

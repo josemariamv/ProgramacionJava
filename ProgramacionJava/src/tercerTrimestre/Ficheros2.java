@@ -57,7 +57,7 @@ public class Ficheros2 {
 		} catch (Exception e) {
 			System.err.println("Error al escribir el archivo: " + e.getMessage());
 		}
-
+		// Idem para añadir
 		try (FileWriter escritor = new FileWriter("/mnt/temp/java.txt", true)) {
 			escritor.write("\nEsta línea se añade al final.");
 		} catch (Exception e) {
@@ -67,8 +67,7 @@ public class Ficheros2 {
 
 	public static void escritura2() {
 		// BufferedWriter es mas eficiente. sobre todo para grandes datos
-		// Usa un buffer intermedio. Por lo mismo es mas crítico no olvidar cerrar el
-		// fichero
+		// Usa un buffer intermedio. Por lo mismo es mas crítico no olvidar cerrar el fichero
 		// Podemos usar la estrategia de try-with-resource para no olvidarlo
 		try (BufferedWriter escritor = new BufferedWriter(new FileWriter("/mnt/temp/java.txt"))) {
 			// BufferedWriter escritor = new BufferedWriter(new
@@ -84,7 +83,7 @@ public class Ficheros2 {
 		} catch (Exception e) {
 			System.err.println("Error: " + e.getMessage());
 		}
-		// también podemos añadir
+		// y también podemos añadir
 		try (BufferedWriter escritor = new BufferedWriter(new FileWriter("/mnt/temp/java.txt", true))) {
 			escritor.write("Última línea.");
 			System.out.println("Añadido.");
@@ -94,13 +93,12 @@ public class Ficheros2 {
 	}
 
 	public static void escritura3() {
-		// Usamos try-with-resources para no tener que cerrar el fichero manualmente
-		// Especificamos el juego de caracteres que vamos a usar (opcional)
+		// PrintWriter nos permite grabar "con formato" de la misma forma que haríamos con printf
+		// Podemos especificar el juego de caracteres que vamos a usar (opcional)
 		try (PrintWriter escritor = new PrintWriter("/mnt/temp/java.txt", StandardCharsets.UTF_8)) {
 			escritor.println("Línea 1: Hola con PrintWriter.");
 			escritor.print("Línea 2: Esto no tiene salto de línea. ");
 			escritor.println("Pero esto sí lo añade.");
-
 			// Formateo de datos
 			String nombre = "Ana";
 			int edad = 30;
@@ -118,7 +116,7 @@ public class Ficheros2 {
 		} catch (Exception e) {
 			System.err.println("Error al abrir/crear el archivo: " + e.getMessage());
 		}
-		// Para añadir con PrintWriter
+		// Para añadir con PrintWriter usamos también PrintWriter
 		try (PrintWriter escritor = new PrintWriter(
                 new FileWriter("/mnt/temp/java.txt", StandardCharsets.UTF_8, true))) {
             
@@ -133,11 +131,11 @@ public class Ficheros2 {
 	}
 
 	public static void escritura4() {
+		// Ahora vamos a ver un método para grabar listas
 		Path rutaArchivo = Paths.get("/mnt/temp/java.txt");
 		ArrayList<String> lineas = new ArrayList<>(List.of("Primera Linea", "Segunda línea", "Tercera línea"));
-
 		try {
-			// Escribe la lista, una línea por elemento
+			// Abre el fichero, escribe la lista (una línea por elemento) y luego cierra el fichero
 			Files.write(rutaArchivo, lineas, StandardCharsets.UTF_8);
 			System.out.println("Lista escrita en archivo.");
 		} catch (Exception e) {
@@ -151,6 +149,7 @@ public class Ficheros2 {
             	rutaArchivo, 
                 nuevasLineas, 
                 StandardCharsets.UTF_8,
+                // StandardOpenOption.CREATE crea el fichero si no existe. Si no lo ponemos generaría una excepción si el fichero no existe, pero si existe añade
                 StandardOpenOption.CREATE,   
                 StandardOpenOption.APPEND
             );
@@ -163,17 +162,17 @@ public class Ficheros2 {
 	}
 
 	public static void escritura5() {
+		// Similar al método anterior, pero para escribir Strings
 		Path rutaArchivo = Paths.get("/mnt/temp/java.txt");
 		String contenido = "Este es el contenido a escribir.\nSegunda línea.";
 		try {
-			// Sobrescribe por defecto
+			// Abre el fichero, graba el string y lo cierra luego
 			Files.writeString(rutaArchivo, contenido, StandardCharsets.UTF_8);
 			System.out.println("Archivo escrito con Files.writeString");
 
-			// Añadir más contenido (append)
+			// Añadir más contenido (append). Funciona también igual que en el caso de las listas
 			String masContenido = "\nAñadiendo más texto.";
-			Files.writeString(rutaArchivo, masContenido, StandardCharsets.UTF_8, StandardOpenOption.CREATE,
-					StandardOpenOption.APPEND);
+			Files.writeString(rutaArchivo, masContenido, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
 			System.out.println("Texto añadido.");
 
 		} catch (Exception e) {

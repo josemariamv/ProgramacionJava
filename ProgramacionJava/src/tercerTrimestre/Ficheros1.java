@@ -146,7 +146,7 @@ public class Ficheros1 {
 			// cuidado que aquí los saltos de línea siguen existiendo. Si nuestro fichero tuviera dos lineas así
 			// uno
 			// dos
-			// contenido sería así: "uno\ndos"
+			// contenido sería así: "uno\ndos\n"
 			// El \n simboliza el salto de línea y ocupa un solo caracter y no dos
 			contenido = Files.readString(ruta);
 		} catch (Exception e) {

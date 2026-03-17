@@ -12,9 +12,9 @@ import java.util.Map;
 public class Test {
 
 	public static void main(String[] args) {
-		String fSoluciones = "/mnt/temp/soluciones.txt";
-		String fRespuestas = "/mnt/temp/respuestas.txt";
-		String fNotas = "/mnt/temp/notas.txt";
+		String fSoluciones = "/home/josemaria/soluciones.txt";
+		String fRespuestas = "/home/josemaria/respuestas.txt";
+		String fNotas = "/home/josemaria/notas.txt";
 		int numPreguntas = 10;
 		String soluciones[];
 		HashMap<String, String[]> respuestas = null;
@@ -29,6 +29,7 @@ public class Test {
 		String[] soluciones = null;
 		try {
 			linea = Files.readString(ruta);
+			linea=linea.replace("\n", "");
 		}catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		}
@@ -72,7 +73,8 @@ public class Test {
 	public static double calcularNota(String[] soluciones, String[] respuesta) {
 		double nota = 0;
 		for(int i=0; i<soluciones.length; i++) {
-			if(soluciones[i].charAt(0) == respuesta[i].charAt(0))
+			//if(soluciones[i].charAt(0) == respuesta[i].charAt(0))
+			if(soluciones[i].equals(respuesta[i]))
 				nota+=1;
 			else
 				nota-=0.3;

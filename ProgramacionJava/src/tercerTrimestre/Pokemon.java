@@ -13,6 +13,7 @@ public class Pokemon implements Serializable{
 	// Los datos estáticos, si los hubiera, no se guardan
 	// Si quisiéramos que algún atributo no se guardara (por tener información sensible, por ejemplo)
 	// lo definimos como transient:
+	
 	// private transient String password;
 
 	public Pokemon(int c, String n, String t) {

@@ -51,16 +51,22 @@ public class Ficheros3 {
 	}
 	
 	public static void escribirFichero(String fichero) {
+		// Fíjate que usamos "output" para escribir e "input" para leer. Puede parecer contradictorio
+		// pero piensa que el punto de vista es el de la "persona" que lee o graba
+		// cuando escribes es output porque los datos salen de ti hacia el fichero
+		// cuando lees es input porque los datos vienen a ti desde el fichero
 		 try (DataOutputStream binario = new DataOutputStream(new FileOutputStream(fichero))) {
-	            
+	            // Lo mas importante a la hora de escribir en un fichero binario es que importa el tipo de datos
+			 	// que se escribe. En los de texto no, porque siempre escribimos texto. Aquí usamos métodos distintos
+			 	// por cada tipo de datos
+			 	// Por lo demás, la estructura es muy similar
 	            binario.writeInt(42);             
 	            binario.writeDouble(3.14159);     
 	            binario.writeBoolean(true);       
 	            binario.writeUTF("Hola Mundo");   
 	            binario.writeChar('A');           
 	            
-	            System.out.println("Datos escritos correctamente en " + fichero);
-	            
+	            System.out.println("Datos escritos correctamente en " + fichero);         
 	        } catch (Exception e) {
 	            System.err.println("Error: " + e.getMessage());
 	        }
@@ -70,6 +76,8 @@ public class Ficheros3 {
 		try (DataInputStream binario = new DataInputStream(new FileInputStream(fichero))) {
             
             // Tenemos que leer en el mismo orden y los mismos tipos que se escribieron
+			// Prueba a intercambia el orden de las dos líneas siguientes y verás que lo que se lee
+			// en ese caso es totalmente distinto a lo que escribiste
             int entero = binario.readInt();
             double decimal = binario.readDouble();
             boolean bool= binario.readBoolean();
@@ -89,6 +97,7 @@ public class Ficheros3 {
 	}
 	
 	public static void guardarPokemon(Pokemon pokemon, String fichero) {
+		// guardar un objeto es sumamente fácil. Usamos siempre el mismo método y no hace falta usar un "cast"
         try (ObjectOutputStream binario = new ObjectOutputStream(new FileOutputStream(fichero))) {
             binario.writeObject(pokemon);
             System.out.println("Pokemon guardado correctamente en " + fichero);
@@ -101,8 +110,7 @@ public class Ficheros3 {
 	public static Pokemon recuperarPokemon(String fichero) {
 		Pokemon pokemon = null;
         try (ObjectInputStream binario = new ObjectInputStream(new FileInputStream(fichero))) {
-            
-        	// El cast al tipo de objeto a leer es obligatorio siempre
+        	// Al leer, el cast al tipo de objeto es obligatorio
             pokemon = (Pokemon) binario.readObject();
             System.out.println("Pokemon recuperado correctamente");
             
@@ -112,8 +120,9 @@ public class Ficheros3 {
         return pokemon;
     }
 	
-	// Un método muy práctico para guardar y recuperar objetos sin preocuparnos de cuantos son es guardarlos en una lista
 	public static void guardarListaPokemons(ArrayList<Pokemon> lista, String fichero) {
+		// Un método muy práctico para guardar y recuperar objetos sin preocuparnos de cuantos son es guardarlos en una lista
+		// La lista se trata como un único objeto independientemente de su tamaño
         try (ObjectOutputStream binario = new ObjectOutputStream(new FileOutputStream(fichero))) {
             binario.writeObject(lista);
             System.out.println("Lista de Pokemons guardada correctamente en " + fichero);
@@ -125,9 +134,9 @@ public class Ficheros3 {
 	
 	public static ArrayList<Pokemon> recuperarListaPokemons(String fichero) {
 		ArrayList <Pokemon> lista = null;
-        try (ObjectInputStream binario = new ObjectInputStream(new FileInputStream(fichero))) {
-            
-        	// Igualmente, el cast es obligatorio
+        try (ObjectInputStream binario = new ObjectInputStream(new FileInputStream(fichero))) {        
+        	// Al leer, la lista es también un único objeto de forma independiente a su tamaño
+        	// No olvides el cast, que también hace falta
             lista = (ArrayList<Pokemon>) binario.readObject();
             System.out.println("Lista de Pokemons recuperada correctamente");
             

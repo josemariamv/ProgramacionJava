@@ -1,6 +1,7 @@
 package tercerTrimestre;
 
 import java.io.RandomAccessFile;
+import java.util.HashMap;
 
 public class Ficheros4 {
 
@@ -14,17 +15,25 @@ public class Ficheros4 {
 		// tamaño fijo.
 
 		String fichero = "registros.dat";
+		HashMap<String, Integer> agenda = new HashMap<>();
+		agenda.put("Isabel", 35);
+		agenda.put("Marcos", 51);
+		agenda.put("José María", 57);
+		agenda.put("Luis", 23);
 		
 		try {
-			crearRegistro(fichero);
+			crearRegistro(fichero, agenda);
 			leerRegistro(fichero,2);
-			modificarRegistro(fichero, 2, "Luis Miguel", 31);
+			modificarRegistro(fichero, 2, "José Miguel", 56);
 			modificarRegistro(fichero, 200, "Luis Miguel", 31);
 			leerRegistro(fichero,2);
 			leerRegistro(fichero,500);
 			leerTodosLosRegistros(fichero);
-			anyadeRegistro(fichero,"Armando", 35);
+			//anyadeRegistro(fichero,"Armando", 35);
 			leerRegistro(fichero,5);
+			leerRegistro(fichero,3);
+			leerRegistro(fichero,4);
+			modificarRegistro(fichero, 4, "Aurora", 50);
 			leerTodosLosRegistros(fichero);
 			
 		}catch(Exception e) {
@@ -36,19 +45,17 @@ public class Ficheros4 {
 	// en los métodos añadimos la clausula throws Exception (o el nombre de la excepción concreta)
 	// cuando se produzca esa excepción el método deja de ejecutarse y vuelve al programa principal
 	// y se ejecuta allí el bloque catch
-	public static void crearRegistro (String fichero) throws Exception{
+	public static void crearRegistro (String fichero, HashMap<String, Integer> agenda) throws Exception{
 		// el modo rw permite leer y escribir y crea el fichero si no existe. No existe modo w como en los ficheros de texto
 		// los modos rws y rwd son similares pero escriben directamente a disco y no a cache.
 		try (RandomAccessFile raf = new RandomAccessFile(fichero, "rw")) {
-            String[] nombres = {"Ana", "Luis", "Carlos", "Marta"};
-            int[] edades = {25, 30, 28, 35};
 
-            for (int i = 0; i < nombres.length; i++) {
-                escribirNombre(raf, nombres[i]);
-                raf.writeInt(edades[i]);  // Los enteros se graban con 4 bytes
+			for (String nombre : agenda.keySet()) {
+                escribirNombre(raf, nombre);
+                raf.writeInt(agenda.get(nombre));  // Los enteros se graban con 4 bytes
             }
             
-            System.out.println("Archivo creado con " + nombres.length + " registros");
+            System.out.println("Archivo creado con " + agenda.size() + " registros");
             System.out.println("Tamaño total del archivo: " + raf.length() + " bytes");
         }
 	}
@@ -77,14 +84,19 @@ public class Ficheros4 {
             // Calcular la posicion donde empezamos a leer
     		// El registro 1 es el primero (y empieza en la posición 0)
             long offset = (registro-1) * TAMANYO_REGISTRO;
-            int mayor = (int)(raf.length()/TAMANYO_REGISTRO);
-            if(registro>mayor)
-            	System.out.println("El registro mas alto es el " + mayor);
+            if(offset >=raf.length()) {
+            	System.out.println("No existe el registro " + registro);
+            	System.out.println("El registro mas alto es el " + raf.length()/TAMANYO_REGISTRO);
+            }
             else {
             	raf.seek(offset);
             	String nombre = leerNombre(raf);
-            	int edad = raf.readInt();
-                System.out.printf("Registro %d: '%s', %d años%n", registro, nombre, edad);
+            	if(nombre.charAt(0) == '*')
+            		System.out.println("El registro " + registro + " está marcado como eliminado");
+            	else {
+            		int edad = raf.readInt();
+            		System.out.printf("Registro %d: '%s', %d años%n", registro, nombre, edad);
+            	}
             }
         }
     }
@@ -99,17 +111,24 @@ public class Ficheros4 {
         return nombre.trim();  // trim() para eliminar espacios
     }
     
-    private static void modificarRegistro(String fichero, int registro, String nombre, int edad) throws Exception{
+    private static void modificarRegistro(String fichero, int registro, String nombreNuevo, int edad) throws Exception{
     	try (RandomAccessFile raf = new RandomAccessFile(fichero, "rw")) {
             long offset = (registro-1) * TAMANYO_REGISTRO;
-            int mayor = (int)(raf.length()/TAMANYO_REGISTRO);
-            if(registro>mayor)
-            	System.out.println("El registro mas alto es el " + mayor);
+            if(offset>=raf.length()) {
+            	System.out.println("No existe el registro " + registro);
+            	System.out.println("El registro mas alto es el " + raf.length()/TAMANYO_REGISTRO);
+            }
             else {
             	raf.seek(offset);
-            	escribirNombre(raf, nombre);
-            	raf.writeInt(edad);
-            	System.out.println("Registro " + registro + " modificado");
+            	String nombre = leerNombre(raf);
+            	if(nombre.charAt(0) == '*')
+            		System.out.println("El registro " + registro + " está marcado como eliminado");
+            	else {
+            		raf.seek(offset);
+            		escribirNombre(raf, nombreNuevo);
+            		raf.writeInt(edad);
+            		System.out.println("Registro " + registro + " modificado");
+            	}
             }
         }
     }
@@ -121,8 +140,10 @@ public class Ficheros4 {
     		System.out.println("NÚMERO DE REGISTROS: " + numRegistros);
     		for(int i=0; i< numRegistros; i++) {
     			String nombre = leerNombre(raf);
-    			int edad = raf.readInt();
-    			System.out.printf("Registro %d: '%s', %d años%n", i+1, nombre, edad);
+    			if(nombre.charAt(0) != '*') {
+    				int edad = raf.readInt();
+    				System.out.printf("Registro %d: '%s', %d años%n", i+1, nombre, edad);
+    			}
     		}
         }
     }
@@ -134,8 +155,5 @@ public class Ficheros4 {
             raf.writeInt(edad);
             System.out.println("Registro añadido");
         }
-    }
-    
-    
-
+    }    
 }

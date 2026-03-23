@@ -19,7 +19,9 @@ public class Ficheros4 {
 			crearRegistro(fichero);
 			leerRegistro(fichero,2);
 			modificarRegistro(fichero, 2, "Luis Miguel", 31);
+			modificarRegistro(fichero, 200, "Luis Miguel", 31);
 			leerRegistro(fichero,2);
+			leerRegistro(fichero,500);
 			leerTodosLosRegistros(fichero);
 			anyadeRegistro(fichero,"Armando", 35);
 			leerRegistro(fichero,5);
@@ -75,12 +77,15 @@ public class Ficheros4 {
             // Calcular la posicion donde empezamos a leer
     		// El registro 1 es el primero (y empieza en la posición 0)
             long offset = (registro-1) * TAMANYO_REGISTRO;
-            raf.seek(offset);
-            
-            String nombre = leerNombre(raf);
-            int edad = raf.readInt();
-            
-            System.out.printf("Registro %d: '%s', %d años%n", registro, nombre, edad);
+            int mayor = (int)(raf.length()/TAMANYO_REGISTRO);
+            if(registro>mayor)
+            	System.out.println("El registro mas alto es el " + mayor);
+            else {
+            	raf.seek(offset);
+            	String nombre = leerNombre(raf);
+            	int edad = raf.readInt();
+                System.out.printf("Registro %d: '%s', %d años%n", registro, nombre, edad);
+            }
         }
     }
     
@@ -97,12 +102,15 @@ public class Ficheros4 {
     private static void modificarRegistro(String fichero, int registro, String nombre, int edad) throws Exception{
     	try (RandomAccessFile raf = new RandomAccessFile(fichero, "rw")) {
             long offset = (registro-1) * TAMANYO_REGISTRO;
-            raf.seek(offset);
-          
-            escribirNombre(raf, nombre);
-            raf.writeInt(edad);
-         
-            System.out.println("Registro " + registro + " modificado");
+            int mayor = (int)(raf.length()/TAMANYO_REGISTRO);
+            if(registro>mayor)
+            	System.out.println("El registro mas alto es el " + mayor);
+            else {
+            	raf.seek(offset);
+            	escribirNombre(raf, nombre);
+            	raf.writeInt(edad);
+            	System.out.println("Registro " + registro + " modificado");
+            }
         }
     }
     

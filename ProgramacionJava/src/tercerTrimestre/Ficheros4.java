@@ -31,9 +31,12 @@ public class Ficheros4 {
 			leerTodosLosRegistros(fichero);
 			//anyadeRegistro(fichero,"Armando", 35);
 			leerRegistro(fichero,5);
-			leerRegistro(fichero,3);
 			leerRegistro(fichero,4);
-			modificarRegistro(fichero, 4, "Aurora", 50);
+			borrarRegistro(fichero,3);
+			borrarRegistro(fichero,3);
+			leerRegistro(fichero,3);
+			modificarRegistro(fichero, 3, "José Miguel", 56);
+			modificarRegistro(fichero, 6, "Alejandro", 34);
 			leerTodosLosRegistros(fichero);
 			
 		}catch(Exception e) {
@@ -91,8 +94,8 @@ public class Ficheros4 {
             else {
             	raf.seek(offset);
             	String nombre = leerNombre(raf);
-            	if(nombre.charAt(0) == '*')
-            		System.out.println("El registro " + registro + " está marcado como eliminado");
+            	if(nombre.charAt(0)=='*')
+            		System.out.println("El registro " + registro + " está marcado para ser eliminado");
             	else {
             		int edad = raf.readInt();
             		System.out.printf("Registro %d: '%s', %d años%n", registro, nombre, edad);
@@ -111,7 +114,7 @@ public class Ficheros4 {
         return nombre.trim();  // trim() para eliminar espacios
     }
     
-    private static void modificarRegistro(String fichero, int registro, String nombreNuevo, int edad) throws Exception{
+    private static void modificarRegistro(String fichero, int registro, String nombreNuevo, int edadNueva) throws Exception{
     	try (RandomAccessFile raf = new RandomAccessFile(fichero, "rw")) {
             long offset = (registro-1) * TAMANYO_REGISTRO;
             if(offset>=raf.length()) {
@@ -121,14 +124,14 @@ public class Ficheros4 {
             else {
             	raf.seek(offset);
             	String nombre = leerNombre(raf);
-            	if(nombre.charAt(0) == '*')
-            		System.out.println("El registro " + registro + " está marcado como eliminado");
-            	else {
-            		raf.seek(offset);
-            		escribirNombre(raf, nombreNuevo);
-            		raf.writeInt(edad);
-            		System.out.println("Registro " + registro + " modificado");
+            	if(nombre.charAt(0)!='*') {
+                	raf.seek(offset);
+                	escribirNombre(raf, nombreNuevo);
+                	raf.writeInt(edadNueva);
+                	System.out.println("Registro " + registro + " modificado");
             	}
+            	else
+            		System.out.println("El registro " + registro + " no puede ser modificado porque está marcado para ser eliminado");
             }
         }
     }
@@ -140,10 +143,9 @@ public class Ficheros4 {
     		System.out.println("NÚMERO DE REGISTROS: " + numRegistros);
     		for(int i=0; i< numRegistros; i++) {
     			String nombre = leerNombre(raf);
-    			if(nombre.charAt(0) != '*') {
-    				int edad = raf.readInt();
-    				System.out.printf("Registro %d: '%s', %d años%n", i+1, nombre, edad);
-    			}
+   				int edad = raf.readInt();
+   				if(nombre.charAt(0)!='*')
+   					System.out.printf("Registro %d: '%s', %d años%n", i+1, nombre, edad);
     		}
         }
     }
@@ -156,4 +158,30 @@ public class Ficheros4 {
             System.out.println("Registro añadido");
         }
     }    
+    
+    private static void borrarRegistro(String fichero, int registro) throws Exception {
+    	// el modo r es de solo lectura. provoca excepción si el fichero no existe
+    	try (RandomAccessFile raf = new RandomAccessFile(fichero, "rw")) {
+            // Calcular la posicion donde empezamos a leer
+    		// El registro 1 es el primero (y empieza en la posición 0)
+            long offset = (registro-1) * TAMANYO_REGISTRO;
+            if(offset >=raf.length()) {
+            	System.out.println("No existe el registro " + registro);
+            	System.out.println("El registro mas alto es el " + raf.length()/TAMANYO_REGISTRO);
+            }
+            else {
+            	raf.seek(offset);
+            	String nombre = leerNombre(raf);
+           		if (nombre.charAt(0) == '*')
+           			System.out.println("El registro " + registro + " ya había sido borrado");
+           		else {
+           			nombre = '*' + nombre.substring(1);
+           			raf.seek(offset);
+           			escribirNombre(raf,nombre);
+           			System.out.println("Registro " + registro + " eliminado con éxito");
+           		}
+           		
+            }
+        }
+    }
 }

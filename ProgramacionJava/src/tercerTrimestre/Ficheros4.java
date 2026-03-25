@@ -5,6 +5,10 @@ import java.util.HashMap;
 
 public class Ficheros4 {
 
+	// Usar variables globales está mal visto y hay que limitarlo lo mas posible
+	// Usar constantes globales, sin embargo, resulta muy útil.
+	// En este caso definimos aquí los tamaños de los datos que vamos a usar de forma
+	// que podamos cambiarlo en un único punto si lo necesitamos
 	static final int TAMANYO_NOMBRE = 20; // caracteres. un caracter ocupa 2 bytes
 	static final int TAMANYO_EDAD = 4; // bytes. un entero ocupa 4 bytes
 	static final int TAMANYO_REGISTRO = TAMANYO_NOMBRE *2 + TAMANYO_EDAD;
@@ -14,6 +18,8 @@ public class Ficheros4 {
 		// de pasar por los demas. Lo mas importante para ello es que los "registros" de datos tengan un
 		// tamaño fijo.
 
+		// Vamos a crear una pequeña agenda en un fichero. Los registros se componen de nombre y edad
+		// Cargamos los datos en un diccionario inicialmente
 		String fichero = "registros.dat";
 		HashMap<String, Integer> agenda = new HashMap<>();
 		agenda.put("Isabel", 35);
@@ -22,21 +28,28 @@ public class Ficheros4 {
 		agenda.put("Luis", 23);
 		
 		try {
+			// creamos el fichero
 			crearRegistro(fichero, agenda);
+			// leemos el registro número 2
 			leerRegistro(fichero,2);
+			// modificamos el contenido del registro número 2
 			modificarRegistro(fichero, 2, "José Miguel", 56);
+			// intentamos modificar un registro que no existe
 			modificarRegistro(fichero, 200, "Luis Miguel", 31);
 			leerRegistro(fichero,2);
+			// intentamos leer un registro que no existe
 			leerRegistro(fichero,500);
+			// leemos todos los registros
 			leerTodosLosRegistros(fichero);
+			// Añadimos un registro nuevo
 			//anyadeRegistro(fichero,"Armando", 35);
 			leerRegistro(fichero,5);
-			leerRegistro(fichero,4);
+			// Borramos el registro 3
 			borrarRegistro(fichero,3);
+			// tratamos de borrar, leer o modificar un registro marcado como borrado
 			borrarRegistro(fichero,3);
 			leerRegistro(fichero,3);
 			modificarRegistro(fichero, 3, "José Miguel", 56);
-			modificarRegistro(fichero, 6, "Alejandro", 34);
 			leerTodosLosRegistros(fichero);
 			
 		}catch(Exception e) {
@@ -56,9 +69,9 @@ public class Ficheros4 {
 			for (String nombre : agenda.keySet()) {
                 escribirNombre(raf, nombre);
                 raf.writeInt(agenda.get(nombre));  // Los enteros se graban con 4 bytes
-            }
-            
+            }      
             System.out.println("Archivo creado con " + agenda.size() + " registros");
+            // length nos devuelve el tamaño en bytes del archivo. Nos va a ayudar a ver que todo vaya bien
             System.out.println("Tamaño total del archivo: " + raf.length() + " bytes");
         }
 	}
@@ -92,6 +105,8 @@ public class Ficheros4 {
             	System.out.println("El registro mas alto es el " + raf.length()/TAMANYO_REGISTRO);
             }
             else {
+            	// seek nos permite posicionarnos en un punto del fichero
+            	// offset es un número de bytes a partir del principio del fichero
             	raf.seek(offset);
             	String nombre = leerNombre(raf);
             	if(nombre.charAt(0)=='*')
@@ -111,7 +126,7 @@ public class Ficheros4 {
             char c = raf.readChar();
             nombre = nombre + c;
         }
-        return nombre.trim();  // trim() para eliminar espacios
+        return nombre.trim();  // trim() para eliminar los espacios en blanco
     }
     
     private static void modificarRegistro(String fichero, int registro, String nombreNuevo, int edadNueva) throws Exception{
@@ -140,7 +155,6 @@ public class Ficheros4 {
     	try (RandomAccessFile raf = new RandomAccessFile(fichero, "r")) {
     		// calculamos el número de registros a partir del tamaño del fichero
     		int numRegistros = (int)raf.length()/TAMANYO_REGISTRO;
-    		System.out.println("NÚMERO DE REGISTROS: " + numRegistros);
     		for(int i=0; i< numRegistros; i++) {
     			String nombre = leerNombre(raf);
    				int edad = raf.readInt();
@@ -160,10 +174,7 @@ public class Ficheros4 {
     }    
     
     private static void borrarRegistro(String fichero, int registro) throws Exception {
-    	// el modo r es de solo lectura. provoca excepción si el fichero no existe
     	try (RandomAccessFile raf = new RandomAccessFile(fichero, "rw")) {
-            // Calcular la posicion donde empezamos a leer
-    		// El registro 1 es el primero (y empieza en la posición 0)
             long offset = (registro-1) * TAMANYO_REGISTRO;
             if(offset >=raf.length()) {
             	System.out.println("No existe el registro " + registro);
@@ -172,6 +183,7 @@ public class Ficheros4 {
             else {
             	raf.seek(offset);
             	String nombre = leerNombre(raf);
+            	// usaremos un * para reemplazar el primer caracter como marca de borrado
            		if (nombre.charAt(0) == '*')
            			System.out.println("El registro " + registro + " ya había sido borrado");
            		else {

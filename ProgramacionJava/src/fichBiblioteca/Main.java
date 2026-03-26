@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Clase principal con menú interactivo
  */
-public class SistemaBiblioteca {
+public class Main {
     private static Scanner scanner = new Scanner(System.in);
     private static Biblioteca biblioteca;
     

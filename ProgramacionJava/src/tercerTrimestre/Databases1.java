@@ -6,6 +6,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/*
+ PARA TRABAJAR CON BASES DE DATOS MYSQL/MARIADB DESDE ECLIPSE:
+ - Descargar el conector J (antes JDBC) de la página oficial de Oracle
+    https://dev.mysql.com/downloads/connector/j/
+    Elegir la opción de "plataforma independiente"
+    Descargar el archivo con cualquiera de los dos formatos propuestos y descomprimirlo en local
+    NOTA: aunque parezca que hay que crearse una cuenta, en la parte inferior de la página aparece una opción para descargar el archivo sin necesidad de hacerlo
+
+- En el proyecto de Eclipse donde vamos a trabajar con el
+    - Pulsar con el botón derecho sobre el nombre del proyecto
+    - Elegir Build Path
+    - Elegir Add External Archives
+    - Navegar hasta donde hemos descomprimido el conector J y elegir el archivo .jar que estaba dentro
+    IMPORTANTE: si borras el archivo del disco duro dejará de funcionar. 
+    
+    NOTA: si no nos aparece la opción de "Add External Archives" en Build Path elegir la perspectiva de Java y a continuación "Resetear" Perspectiva".
+ */
+
 public class Databases1 {
 
 	public static void main(String[] args) {

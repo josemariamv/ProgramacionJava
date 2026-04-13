@@ -48,8 +48,8 @@ public class Databases1 {
 			
 			//primerEjemplo(conexion);
 			// segundoEjemplo(conexion);
-			// tercerEjemplo(conexion);
-			cuartoEjemplo(conexion);
+			tercerEjemplo(conexion);
+			//cuartoEjemplo(conexion);
 			
 			// Si no usamos el try-with-resources al final de la ejecución hay que cerrar el
 			// objeto de conexión
@@ -109,6 +109,10 @@ public class Databases1 {
 		while (resultado.previous()) {
 			System.out.printf("ID: %d - %s, %s\n", resultado.getInt("actor_id"), resultado.getString("last_name"), resultado.getString("first_name"));
 		}
+		// Otros métodos que nos permiten posicionarnos en el ResultSet:
+		// absolute(n) Salta a la fila n, contando desde el principio (la 1 es la primera)
+		// usando números negativos cuenta desde el final (la -1 es la última)
+		// relative(n) salta n filas hacía adelante desde la posición actual. Con números negativos salta hacía atras.
 	}
 	
 	public static void tercerEjemplo(Connection conexion) throws SQLException{
@@ -116,7 +120,11 @@ public class Databases1 {
 		Statement sql = conexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		ResultSet resultado = sql.executeQuery("SELECT * FROM actor");
 		// nos posicionamos en la última línea
-		resultado.last();
+		// resultado.last()
+		// o en la tercera empezando por detrás
+		resultado.absolute(-3);
+		// o cinco por detrás de la anterior
+		resultado.relative(-5);
 		// modificamos dos campos
 		resultado.updateString("first_name", "Inés");
 		resultado.updateString("last_name", "Perado");

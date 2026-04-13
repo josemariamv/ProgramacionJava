@@ -82,6 +82,7 @@ public class Databases1 {
 			System.out.printf("ID: %d - %s, %s\n", resultado.getInt("actor_id"), resultado.getString("last_name"), resultado.getString("first_name"));
 			// o con la posición que ocupa en el query, empezando por 0
 		}
+		// Otros get: getLong(), getDouble(), getFloat(), getBoolean(), getDate() y getTimeStamp()
 	}
 	
 	public static void segundoEjemplo(Connection conexion) throws SQLException{

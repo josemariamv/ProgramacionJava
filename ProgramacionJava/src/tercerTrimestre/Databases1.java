@@ -47,8 +47,8 @@ public class Databases1 {
 			System.out.println("Conexión realizada con exito\n");
 			
 			//primerEjemplo(conexion);
-			// segundoEjemplo(conexion);
-			tercerEjemplo(conexion);
+			segundoEjemplo(conexion);
+			// tercerEjemplo(conexion);
 			//cuartoEjemplo(conexion);
 			
 			// Si no usamos el try-with-resources al final de la ejecución hay que cerrar el

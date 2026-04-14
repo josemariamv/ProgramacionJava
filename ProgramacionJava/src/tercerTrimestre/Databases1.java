@@ -47,8 +47,8 @@ public class Databases1 {
 			System.out.println("Conexión realizada con exito\n");
 			
 			//primerEjemplo(conexion);
-			// segundoEjemplo(conexion);
-			tercerEjemplo(conexion);
+			segundoEjemplo(conexion);
+			// tercerEjemplo(conexion);
 			//cuartoEjemplo(conexion);
 			
 			// Si no usamos el try-with-resources al final de la ejecución hay que cerrar el
@@ -91,9 +91,9 @@ public class Databases1 {
         // TYPE_FORWARD_ONLY: Sólo podemos ir hacía delante en el ResultSet
         // TYPE_SCROLL_INSENSITIVE: Podemos avanzar y retroceder y posicionarnos en el ResulSet
         // TYPE_SCROLL_SENSITIVE: Idem al anterior pero además las modificaciones hechas en la bb.dd. se reflejan en el ResultSet. 
-        //									No implementado en MySQL/MariaDB
+        //		No implementado en MySQL/MariaDB
         // CONCUR_READ_ONLY: El ResultSet no puede modificarse
-        // CONCUR_UPDATABLE: Podemos modificar el ResultSet
+        // CONCUR_UPDATABLE: Podemos modificar el ResultSet y se actualiza el resultado en la base de datos
 		// Las opciones por defecto si no ponemos nada son TYPE_FORWARD_ONLY y CONCUR_READ_ONLY
 		
 		Statement sql = conexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);

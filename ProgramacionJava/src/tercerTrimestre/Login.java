@@ -18,7 +18,7 @@ public class Login {
 			String salt = generarSalt();
             
             // Generar el HASH usando la password y la salt
-			String hash = generarHash(password, salt);
+			String hash = generarHash(password+salt);
             
             // Resultados
             System.out.println("Password Original: " + password);
@@ -39,10 +39,9 @@ public class Login {
         return Base64.getEncoder().encodeToString(salt);
     }
 
-    public static String generarHash(String password, String salt) throws Exception {
+    public static String generarHash(String entrada) throws Exception {
     	MessageDigest digest = MessageDigest.getInstance("SHA-512");
-    	String input = salt+password;
-        byte[] hashBytes = digest.digest(input.getBytes(StandardCharsets.UTF_8));
+        byte[] hashBytes = digest.digest(entrada.getBytes(StandardCharsets.UTF_8));
         return Base64.getEncoder().encodeToString(hashBytes);
     }
 }

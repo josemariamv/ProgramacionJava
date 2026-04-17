@@ -38,6 +38,11 @@ public class Databases2 {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm:ss");
 		String last_update = fechayHora.format(formato);
 		sql.setString(3, last_update);
+		// cuando la sentencia sql ejecutada no devuelve un resultado (ResultSet) usamos executeUpdate
+		// en lugar de executeQuery
+		// cuando la sentencia es un insert, delete o update devuelve un entero con el número de filas
+		// afectadas por la instrucción
+		// cuando la sentencia es un create, alter, drop o similar devuelve siempre 0
 		sql.executeUpdate();
 	}
 	

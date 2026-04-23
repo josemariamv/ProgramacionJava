@@ -3,7 +3,8 @@ package tercerTrimestre;
 import java.io.Serializable;
 
 // Para poder grabar los objetos en un fichero y darles persistencia tienen que ser Serializables
-public class Pokemon implements Serializable{
+// Para poder comparar tiene que ser Comparable
+public class Pokemon implements Serializable,  Comparable<Pokemon> {
 	private int codigo;
 	private String nombre;
 	private String[] tipo = new String[2];
@@ -43,6 +44,37 @@ public class Pokemon implements Serializable{
 		System.out.println("PV: " + this.pv);
 		System.out.println("------------------");
 	}
+	
+	// El decorador Override no es obligatorio pero si muy recomendado
+	 @Override
+	 public String toString() {
+		 String texto = "("+ this.codigo + ") " + this.nombre + "\n";
+		 if(this.tipo[1]== null)
+			 texto += "Tipo: " + this.tipo[0];
+		 else
+			 texto += "Tipos: " + this.tipo[0] + " / " + this.tipo[1];
+		 texto +="\n-----------";
+		 return texto;
+	 }
+	 
+	 @Override
+	 public boolean equals(Object otro) {
+		 boolean iguales = false;
+		 Pokemon comparado = (Pokemon)otro;
+		 if(this.nombre == comparado.nombre)
+			 iguales = true;
+		 return iguales;
+	 }
+	 
+	 @Override
+	 public int compareTo(Pokemon otro) {
+		 int devolver = 0;
+		 if(this.codigo > otro.codigo)
+		 	devolver = 1;
+		 else if(this.codigo < otro.codigo)
+		 	devolver = -1;
+		 return devolver;
+	 }
 
 	public void setEvolucion(Pokemon p) {
 		this.evolucion = p;

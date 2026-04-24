@@ -52,5 +52,6 @@ public class Persona implements Fallecida, Jubilada, deBaja {
 			fechaJubilacion = LocalDate.now();
 			fechaBaja = null;
 		}
+		System.out.println("Jubilada. Comprueba que tenga " + this.EDAD_JUBILACION + " años");
 	}
 }

@@ -9,6 +9,8 @@ public class Interfaces {
 		p2.alta();
 		p2.fallecida();
 		p2.jubilada();
+		
+		Jubilada.edadJubilacion(57);
 	}
 
 }

@@ -11,12 +11,30 @@ public class Lambda {
 		// Definimos dos funciones lambda a partir de la interface Operacion
 		// ambas reciben dos int y devuelven otro
 		// pero lo que hacen es diferente
-		Operacion suma  = (a, b) -> a + b;
+		Operacion suma  = (a, b) ->{
+			int x = a + b;
+			return x;
+		};
 		Operacion resta = (a, b) -> a - b;
+		Operacion mayor = (a, b) -> {
+			int m = a;
+			if(b>a)
+				m = b;
+			return m;
+		};
+		
+		Pvp articulo  = (nombre, precio, iva) -> {
+			double pvp = (double)Math.round((precio + (precio * iva / 100))*100)/100;
+			String texto = "PVP " + nombre + ": " + String.valueOf(pvp) + "€";
+			return texto;
+		};
 
 		// Invocamos las lambda que hemos creado así:
 		System.out.println(suma.ejecutar(5, 3)); 
 		System.out.println(resta.ejecutar(5, 3));
+		System.out.println(mayor.ejecutar(5, 13));
+		
+		System.out.println(articulo.calcularPvp("Bollycao", 1.35, 21));
 		
 		// Java define un conjunto de interfaces funcionales genéricas para poder
 		// usarlas como funciones lambda

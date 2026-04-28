@@ -37,7 +37,7 @@ public class Lambda {
 		System.out.println(articulo.calcularPvp("Bollycao", 1.35, 21));
 		
 		// Java define un conjunto de interfaces funcionales genéricas para poder
-		// usarlas como funciones lambda
+		// usarlas como funciones lambda por defecto
 		
 		// Runnable se ejecuta sin recibir parámetros y sin devolver nada
 		// su metodo es run
@@ -61,6 +61,6 @@ public class Lambda {
 		Supplier<Double> pi = () -> 3.14159;
 		System.out.println(pi.get());
 		
-		// Existen otras muy populares pero no vamos a verlas: Predicate, Function, BiFunction, Comparator, etc.
+		// Existen otras muy populares pero no vamos a verlas: Predicate, Function, BiFunction, Trifunction, Comparator, etc.
 	}
 }

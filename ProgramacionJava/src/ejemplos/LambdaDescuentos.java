@@ -12,6 +12,13 @@ public class LambdaDescuentos {
 			return (precio * 0.9);
 		};
 		
+		Descuento diezFijos = (precio, tipo) ->{
+			double valor = precio;
+			if(valor > 10.0)
+				valor -=10;
+			return valor;
+		};
+		
 		System.out.println(sinDescuento.aplicar(47.55,3));
 		System.out.println(diezPorCiento.aplicar(47.55,2));
 		

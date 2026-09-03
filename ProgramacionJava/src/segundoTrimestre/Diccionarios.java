@@ -15,7 +15,7 @@ class Ejemplo{
 
 /*
  * HashMap es una estructura de datos que almacena información en pares de clave-valor. Similar a los diccionarios de Python
- * Ideal cuando necesitas buscar datos de forma instantánea usando un identificador único (la clave) en lugar de un índice numérico.
+ * Ideal cuando necesitas buscar datos de forma instantánea usando un identificador único (la clave) en lugar de un índice numérico
  */
 
 public class Diccionarios {

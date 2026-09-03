@@ -59,7 +59,7 @@ public class Diccionarios {
 		// Recorrer el diccionario es diferente al resto de las colecciones
 		// Al igual que ocurría con HashSet tampoco se mantiene el orden de los elementos
 		// Recorrido completo (claves y valores)
-		for(Map.Entry<String, Double> producto : fruteria.entrySet())
+		for(HashMap.Entry<String, Double> producto : fruteria.entrySet())
 			System.out.printf("Producto: %s: %.2f\n", producto.getKey(), producto.getValue());
 		
 		// Solo claves

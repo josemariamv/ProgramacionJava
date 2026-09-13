@@ -3,7 +3,6 @@ package primerTrimestre;
 public class ConversionTipos {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		/* Conversión entre tipos de datos */
 
 		String textoEntero = "33";

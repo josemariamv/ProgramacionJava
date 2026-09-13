@@ -3,7 +3,6 @@ package primerTrimestre;
 public class Variables {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		/*
 		 * Los nombre de las variables (y todo en general en Java) son sensibles a
 		 * mayúsculas y minúsculas. Edad no es lo mismo que edad o que EDAD
@@ -61,7 +60,7 @@ public class Variables {
 		int horasEnero = 31 * 24;
 
 		// o a través de una función
-		int resultado = Integer.parseInt("565");
+		double resultado = Math.sqrt(565);
 
 		/*
 		 * IMPORTANTE: Las variables siempre hay que declararlas antes de usarlas, el

@@ -67,6 +67,12 @@ public class Variables {
 		 * tipo elegido ha de ser el correcto y no pueden redeclararse ni modificar su
 		 * tipo
 		 */
+		
+		// Si tratamos de usar una variable que no ha sido inicializada nos dará un error:
+		int sueldo;
+		// int sueldoExtra = sueldo * 2;
+		// System.out.println(sueldo);
+		
 	}
 
 }

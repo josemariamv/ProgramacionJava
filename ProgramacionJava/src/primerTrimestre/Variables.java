@@ -101,6 +101,7 @@ public class Variables {
 		System.out.println(Integer.MIN_VALUE); // Muestra el mínimo de un int
 		System.out.println(Integer.MAX_VALUE); // Muestra el máximo de un int
 		System.out.println(Double.MAX_VALUE);  // Muestra el máximo de un double
+		
 	}
 
 }

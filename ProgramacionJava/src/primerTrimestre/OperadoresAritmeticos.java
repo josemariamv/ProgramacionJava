@@ -63,6 +63,12 @@ public class OperadoresAritmeticos {
 		System.out.println("Mi edad es " + edad + " años");
 		
 		// Las potencias se calculan con la funcion pow
+		// Lo siguiente muestra el valor de 2 elevado a 3
 		System.out.println(Math.pow(2, 3));
+		
+		// Y las raíces cuadradas con sqrt
+		double raiz = Math.sqrt(49);
+		System.out.println(raiz);
+		
 	}
 }

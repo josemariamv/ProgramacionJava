@@ -3,8 +3,13 @@ package primerTrimestre;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Nuestro primer programa Java tiene que ser un Hola Mundo
+		
 		System.out.println("¡Hola Mundo!");
+		
+		/*
+		 * Ha sido sencillo para empezar, no?
+		 * Enseguida lo pondremos mas interesante!
+		 */
 	}
-
 }

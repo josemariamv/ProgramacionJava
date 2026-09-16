@@ -49,8 +49,7 @@ public class OperadoresAritmeticos {
 		// la misma variable a derecha y a izquierda del signo igual pueden
 		// simplificarse así:
 
-		edad += 1; // Es igual que edad = edad + 1
-
+		edad += 5; // Es igual que edad = edad + 5
 		// Existen los operadores -=, *=, /= y %=
 		// que hacen lo mismo con estas otras operaciones
 

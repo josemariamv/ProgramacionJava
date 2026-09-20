@@ -55,12 +55,12 @@ public class Teclado {
 		// cuidado al alternar lectura de enteros y textos:
 		System.out.print("Edad: ");
 		edad = lector.nextInt();
-		// se arregla así:
-		// lector.nextLine();
 		System.out.print("Nombre: ");
 		nombre = lector.nextLine();
 
-		System.out.println("[" + nombre + "] tiene " + edad);
+		System.out.println(nombre + " tiene " + edad);
+		
+		
 
 		// No olvides cerrar el scanner cuando termines de usarlo
 		lector.close();

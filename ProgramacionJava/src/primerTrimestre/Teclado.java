@@ -48,6 +48,19 @@ public class Teclado {
 		System.out.print("Cuanto cobras al mes. Usa un punto como signo decimal: ");
 		sueldo = lector.nextDouble();
 		System.out.println("Tu sueldo anual es de: " + sueldo * 12);
+		
+		// existen otros lectores: nextLong, nextFloat, nextShort, etc. Hay que usar el adecuado siempre
+		// dependiendo de lo que queramos obtener y donde vayamos a guardarlo
+		
+		// cuidado al alternar lectura de enteros y textos:
+		System.out.print("Edad: ");
+		edad = lector.nextInt();
+		// se arregla así:
+		// lector.nextLine();
+		System.out.print("Nombre: ");
+		nombre = lector.nextLine();
+
+		System.out.println("[" + nombre + "] tiene " + edad);
 
 		// No olvides cerrar el scanner cuando termines de usarlo
 		lector.close();

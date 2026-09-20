@@ -112,5 +112,21 @@ public class CondicionalSwitch{
 		 */
 		
 		teclado.close();
+		
+		// Existe una versión alternativa de switc a partir de la versión 14 de Java
+		
+		int dia = 3;
+		String nombreDia = switch (dia) {
+	    	case 1 -> "Lunes";
+	    	case 2 -> "Martes";
+	    	case 3 -> "Miércoles";
+	    	case 4 -> "Jueves";
+	    	case 5 -> "Viernes";
+	    	case 6, 7 -> "Fin de semana";
+	    	default -> "Día no válido";
+		};
+		
+		System.out.println(nombreDia);
+		
 	}
 }

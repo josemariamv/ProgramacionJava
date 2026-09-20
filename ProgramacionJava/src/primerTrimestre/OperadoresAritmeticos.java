@@ -69,5 +69,19 @@ public class OperadoresAritmeticos {
 		double raiz = Math.sqrt(49);
 		System.out.println(raiz);
 		
+		// algunas notas mas a tener en cuenta:
+		System.out.println(5 / 2); // división entera vs. decimal
+		System.out.println(5 / 2.0); 
+		System.out.println(0.1 + 0.2); // (imprecisión de los double)
+		int valor = Integer.MAX_VALUE;
+		System.out.println(valor);
+		valor++; //(desbordamiento)
+		System.out.println(valor);
+		char c = 'A';
+		// esto no se puede
+		//c = c + 1;
+		// pero esto si
+		c = (char)(c + 1);
+		System.out.println(c);	
 	}
 }

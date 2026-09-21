@@ -80,12 +80,13 @@ public class CondicionalIf {
 			System.out.println("Daño crítico!");
 		
 		// Errores típicos
+		// No usar correctamente && y || o no usarlos para encadenar condiciones 10 < x < 20 no funciona aquí. Sería 10 < x && x < 20
 		// poner punto y coma después del paréntesis de la condición. Nunca!
 		// no poner paréntesis en la condición. Esto no es python!
 		// omitir las llaves en un bloque cuando hay mas de una instrucción
-		// usar = en lugar de ==
+		// usar = en lugar de == para comparar dos datos iguales
 		// comparar doubles con == Recuerda la imprecisión de sus últimas cifras decimales. Si no son exactamente iguales no devuelve true
-		// No usar correctamente && y || o no usarlos para encadenar condiciones 10 < x < 20 no funciona aquí. Sería 10 < x && x < 20 
+		// Tampoco se pueden comparar textos con == pero eso ya lo veremos mas adelante... 
 	
 	}
 }

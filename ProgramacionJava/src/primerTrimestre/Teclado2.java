@@ -2,7 +2,7 @@ package primerTrimestre;
 import java.util.Scanner;
 import java.util.Locale;
 
-public class Teclado {
+public class Teclado2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -56,7 +56,7 @@ public class Teclado {
 		System.out.print("Edad: ");
 		edad = lector.nextInt();
 		System.out.print("Nombre: ");
-		nombre = lector.nextLine();
+		nombre = lector.next();
 
 		System.out.println(nombre + " tiene " + edad);
 		

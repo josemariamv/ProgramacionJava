@@ -18,16 +18,19 @@ public class ComparacionesCompuestas {
 		if (encontrado)
 			System.out.println("Lo he encontrado");
 		
-		if(!encontrado)
+		if (encontrado == true)
 			System.out.println("Lo he encontrado");
-		else
+		
+		if(!encontrado)
 			System.out.println("No lo he encontrado");
+		else
+			System.out.println("Lo he encontrado");
 		
 		if (n > 1 && n < 10)
-			System.out.println("n está entre 1 y 10");
+			System.out.println("n está entre 1 y 10 (no incluidos los extremos)");
 
-		if (n < 2 || n == 5)
-			System.out.println("n es menor a 2 o igual a 5");
+		if (n <= 2 || n == 5)
+			System.out.println("n es menor o igual a 2 o igual a 5");
 
 		if(encontrado == true || n==5)
 			System.out.println("Lo he encontrado o n es igual a 5");

@@ -1,6 +1,6 @@
 package ejemplos;
 
-public class OrdenarTres {
+public class Condicionales3 {
 
 	public static void main(String[] args) {
 		int a = 21;

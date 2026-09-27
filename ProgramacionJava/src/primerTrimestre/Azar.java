@@ -7,12 +7,11 @@ public class Azar {
 
 	public static void main(String[] args) {
 		/* Generación de números aleatorios */
-		
-		/* Vamos a ver cuatro métodos, de mas simple a mas complejo */
+		/* Vamos a ver cuatro métodos, cada uno con sus características */
 
 		// Genera un número aleatorio entre el 0 y el 1.
 		// En realidad el 1 no está incluido. El máximo que genera es el
-		// 0,99999999999999999 con la máxima precisión que puede
+		// 0,99999999999999999 con la máxima precisión que puede dar un double (15 decimales, recuerda)
 		double azar = Math.random();
 		System.out.println("Número aleatorio entre 0 y 1: " + azar);
 
@@ -28,6 +27,7 @@ public class Azar {
 		int aleatorio = (int) (Math.random() * (fin - inicio + 1) + inicio);
 		System.out.println("Número aleatorio entre " + inicio + " y " + fin + ": " + aleatorio);
 
+
 		// Segundo método usando la clase Random
 		// Precisa importarla antes
 		Random rand = new Random();
@@ -39,6 +39,7 @@ public class Azar {
 		// Con la misma semilla, los números generados son siempre los mismos, por lo que no son realmente aleatorios.
 		// Si no ponemos semilla se toma la hora actual en nanosegundos. El método anterior no permite fijar otra semilla
 		System.out.println(rand.nextInt(2)); // genera un número entre 0 y 1
+		System.out.println(rand.nextInt()); // genera un número entero de entre todos los posibles
 		inicio = 1;
 		fin = 6;
 		dado = rand.nextInt(fin - inicio + 1) + 1; // genera un número entre 1 y 6
@@ -50,7 +51,8 @@ public class Azar {
 		dado = rand.nextInt(fin - inicio + 1) + 1;
 		System.out.println("Tirada de dado de 6 caras: " + dado);
 		
-		// tercer método
+
+		// Tercer método
 		// queda mas clara la horquilla entre la que generará los números
 		// también es mas eficiente cuando tenemos que generar muchos números aleatorios en entornos concurrentes
 		// tampoco podemos inicializar la semilla.
@@ -60,7 +62,8 @@ public class Azar {
         // también podemos generar diferentes tipos de datos
         System.out.println(ThreadLocalRandom.current().nextFloat(2,3));
         
-        // el cuarto método es el único totalmente seguro para aplicaciones que requieran seguridad extrema
+
+        // El cuarto método es el único totalmente seguro para aplicaciones que requieran seguridad extrema
         SecureRandom secureRandom = new SecureRandom();
         // Podemos forzar una semilla (o no)
         // pero en este caso la semilla complementa a la que el genera de forma automática
@@ -70,12 +73,13 @@ public class Azar {
         secureRandom.setSeed(123456);
 
         // Generar un PIN de seguridad de 6 dígitos (entre 100000 y 999999)
-        // el primero nunca puede ser un cero, pero bueno...
+        // el primero nunca puede ser un cero, pero bueno... ya veremos mas adelante como resolverlo
         // también genera diferentes tipos de datos y no solo double o int
         int tokenSeguro = secureRandom.nextInt(900000) + 100000;
         System.out.println("Token criptográficamente seguro: " + tokenSeguro);
         
         // también podemos generar diferentes tipos de datos:
+        // sin argumentos genera un long de entre todos los posibles
         System.out.println(secureRandom.nextLong());
         
 

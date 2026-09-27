@@ -113,7 +113,7 @@ public class CondicionalSwitch{
 		
 		teclado.close();
 		
-		// Existe una versión alternativa de switc a partir de la versión 14 de Java
+		// Existe una versión alternativa de switch a partir de la versión 14 de Java
 		
 		int dia = 3;
 		String nombreDia = switch (dia) {

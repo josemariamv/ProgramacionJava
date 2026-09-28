@@ -75,7 +75,7 @@ public class Azar {
         // Generar un PIN de seguridad de 6 dígitos (entre 100000 y 999999)
         // el primero nunca puede ser un cero, pero bueno... ya veremos mas adelante como resolverlo
         // también genera diferentes tipos de datos y no solo double o int
-        int tokenSeguro = secureRandom.nextInt(900000) + 100000;
+        int tokenSeguro = secureRandom.nextInt(inicio,fin+1);
         System.out.println("Token criptográficamente seguro: " + tokenSeguro);
         
         // también podemos generar diferentes tipos de datos:

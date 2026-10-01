@@ -28,15 +28,9 @@ public class Repetitivas {
 		for (int veces = 0; veces < 5; veces++) {
 			System.out.println(veces);
 		}
-
 		/*
-<<<<<<< HEAD
-		 * Este bucle while hace lo mismo que el anterior for. 
-		 * Puesto que sabemos el número de veces que se va a ejecutar y no es por tanto
-=======
-		 * Este bucle while hace lo mismo que el anterior for. Como vemos es peor opción
+		 * El siguiente bucle while hace lo mismo que el anterior for. Como vemos es peor opción
 		 * puesto que sabemos el número de veces que se va a ejecutar y no es por tanto
->>>>>>> branch 'master' of https://github.com/josemariamv/ProgramacionJava.git
 		 * la estructura adecuada. En el paréntesis del while se pone la condición de
 		 * salida El bloque de instrucciones del while se ejecuta mientras que la
 		 * condición se evalúa como true. Aquí si queremos una inicialización y una
@@ -54,7 +48,8 @@ public class Repetitivas {
 		 * después del bloque de instrucciones. Por tanto el bloque se ejecuta siempre
 		 * al menos una vez. Fíjate bien que lleva un ; después del paréntesis con la
 		 * condición de salida. Es el único caso que hemos visto así. Si no lo lleva
-		 * dará un error.
+		 * dará un error. También son obligatorias las llaves en el bloque de instrucciones
+		 * aunque este sea de una sóla instrucción
 		 */
 		int repeticiones = 0;
 		do {
@@ -82,8 +77,9 @@ public class Repetitivas {
 				System.out.println("Ha salido un " + dado);
 			}
 		}
-		// La siguiente instrucción da error porque la variable dado no existe fuera del
-		// bloque del while
+		// La siguiente instrucción daría error porque la variable dado no existe fuera del
+		// bloque del while:
+		
 		// System.out.println(dado);
 
 		/*

@@ -35,7 +35,7 @@ public class ConversionTipos {
 		double num3 = entero;
 		System.out.println(num3);
 		System.out.println(num3 + 1.5);
-
+		
 		// De double a int si casteo se truncan los decimales
 		// No se redondea
 		System.out.println((int) decimales);
@@ -57,6 +57,9 @@ public class ConversionTipos {
 		final double pi = 3.14159;
 		System.out.println("Valor redondeado: " + (double) Math.round(pi * 100) / 100);
 		System.out.println("Valor redondeado: " + (double) Math.round(pi * 1000) / 1000);
+		System.out.println("Valor redondeado: " + (double) Math.round(pi * 10000) / 10000);
+		
+		// O trucar
 		System.out.println("Valor redondeado: " + (double) Math.round(pi * 10000) / 10000);
 
 		// Los métodos max y min me devuelven el mayor o el menor de dos números

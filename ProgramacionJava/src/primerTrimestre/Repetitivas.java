@@ -29,8 +29,8 @@ public class Repetitivas {
 		}
 
 		/*
-		 * Este bucle for hace lo mismo que el anterior for. Como vemos es peor opción
-		 * puesto que sabemos el número de veces que se va a ejecutar y no es por tanto
+		 * Este bucle while hace lo mismo que el anterior for. 
+		 * Puesto que sabemos el número de veces que se va a ejecutar y no es por tanto
 		 * la estructura adecuada. En el paréntesis del while se pone la condición de
 		 * salida El bloque de instrucciones del while se ejecuta mientras que la
 		 * condición se evalúa como true. Aquí si queremos una inicialización y una

@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Repetitivas {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		/*
 		 * Los bucles for y while (y su variante do-while) son las estructuras de
 		 * control que usamos para estructuras repetitivas. 
@@ -102,7 +101,7 @@ public class Repetitivas {
 		 */
 		
 		/* Cualquiera de las estructuras que hemos visto se pueden anidar una dentro de otra */
-		/* Tantas veces como queramos o necesitemos */
+		/* Tantas veces como queramos o necesitemos  y combinando cualesquiera de ellas*/
 		
 		for(int i=0; i<=9; i++)
 			for(int j=0; j<=9; j++) {

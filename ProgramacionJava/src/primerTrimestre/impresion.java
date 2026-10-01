@@ -18,6 +18,8 @@ public class impresion {
 		System.out.println("\n\nResultados:\nBetis-Madrid: 1\nBarcelona: Atlético de Madrid: 2");
 		
 		// También hemos visto como dar en consola una salida en color rojo para indicar un error
+		// Mucho cuidado porque Java prioriza la salida de los errores y puede mostrarse secuencialmente antes.
+
 		System.err.println("Esto es un error");
 		System.err.print("Y esto también");
 		

@@ -18,7 +18,7 @@ public class Boletin3 {
 		 * 		System.out.println("1"); }
 		 */
 		
-		// La quiniela con mas probabilidades de que salga un 1 y una X
+		// La quiniela con ajuste de probabilidades
 		/*
 		 * for (int i = 0; i < 14; i++) { 
 		 * 	int partido = (int) (Math.random() * 7) + 1;
@@ -86,7 +86,21 @@ public class Boletin3 {
 		 */
 		
 		// Ver si un número muy grande calculado aleatoriamente es primo.
-		// Versión definitiva y optima para calcular si un número es primo
+		// Versión no eficiente
+
+		  int contador, numero;
+		  do {
+		  	numero = ThreadLocalRandom.current().nextInt(100000000,200000000+1);
+		  	contador = 0; 
+		  	for(int divisor = 2; divisor<numero; divisor++)
+		  		if(numero%divisor == 0) 
+		  			contador++; 
+		  	}while(contador!=0);
+		  	System.out.println("El número " + numero + " es primo");
+
+				
+		// Ver si un número muy grande calculado aleatoriamente es primo.
+		// Versión definitiva mas eficiente que la anterior
 		/*
 		 * int contador, numero;
 		 * do {
@@ -101,7 +115,7 @@ public class Boletin3 {
 		 */
 		
 		// Versión del anterior usando números aún mas grandes (long)
-		int contador;
+	/*	int contador;
 		long numero;
 		do {
 			numero = ThreadLocalRandom.current().nextLong(10000000000L,30000000000L+1);
@@ -112,5 +126,6 @@ public class Boletin3 {
 					contador++;
 			} while (contador != 0);
 		System.out.println("El número " + numero + " es primo");
+	*/
 	}
 }

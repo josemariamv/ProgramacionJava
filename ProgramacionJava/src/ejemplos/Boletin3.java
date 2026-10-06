@@ -1,5 +1,6 @@
 package ejemplos;
 
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Boletin3 {
@@ -127,5 +128,28 @@ public class Boletin3 {
 			} while (contador != 0);
 		System.out.println("El número " + numero + " es primo");
 	*/
+	
+    // Calcula los primos entre el 1 y el 100
+  	/*	int contador;
+		System.out.println("Números primos entre el 1 y el 100");
+		for(int numero = 2; numero<=100; numero++) {
+			contador = 0;
+			int raiz = (int)Math.sqrt(numero)+1;
+			for(int divisor = 2; divisor<raiz && contador == 0; divisor++) {
+				if(numero%divisor == 0)
+					contador++;
+			}
+			if(contador==0)
+				System.out.println(numero);
+		}*/
+			
+		// Divide sucesivamente el número dado entre 2 hasta llegar a una cantidad inferior a la unidad
+		Scanner teclado = new Scanner(System.in);
+		System.out.print("Escribe un número: ");
+		double num = teclado.nextDouble();
+		while(num>=1) {
+			num = num/2;
+			System.out.println((double)Math.round(num*100)/100);	
+		}
 	}
 }

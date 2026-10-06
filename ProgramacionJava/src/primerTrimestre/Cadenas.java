@@ -56,6 +56,13 @@ public class Cadenas {
         // Y así al revés, de derecha a izquierda
         for(int i=texto3.length()-1; i>=0; i--)
             System.out.println(texto3.charAt(i));
+        
+        /* cualquier referencia a una posición que no exista provoca una excepción
+		 * En el siguiente caso la posición 4 no existe
+ 		String texto9="HOLA";
+		System.out.println(texto9.charAt(4));
+		 */
+        // Hay que tener mucho cuidado. Sobre todo con los extremos de la cadena (inicio y fin)
 		
         // Usamos el método equals para comparar si dos textos son iguales. Devuelve true si son iguales
         // y false si no lo son
@@ -63,7 +70,7 @@ public class Cadenas {
 		if (texto3.equals(texto5) != true)
 			System.out.println("No son iguales");
 		
-		// Tambien podemos comparar si dos textos son iguales usando el operador ==
+		// Tambien podemos comparar si dos textos son iguales usando el operador == pero preferimos el método anterior
 		String texto6 = "HOLA MUNDO";
 		if (texto5 == texto6)
 			System.out.println("Son iguales");
@@ -77,11 +84,20 @@ public class Cadenas {
 		// (siguiendo el orden alfabético) y <0 si fuese antes 
 		String texto8 = "abc";
 		if(texto8.compareTo("def") < 0)
-			System.out.println("abc va antes que def");
+			System.out.println(texto8 + " va antes que def");
 		else if (texto8.compareTo("def") > 0)
-			System.out.println("abc va después que def");
+			System.out.println(texto8 + " va después que def");
 		else
-			System.out.println("abc es igual que def. Esto no va a ocurrir, verdad?");
+			System.out.println(texto8 + " es igual que def. Esto no va a ocurrir, verdad?");
+		
+		// compareToIgnoreCase es igual que el anterior pero ignorando mayúsculas y minúsculas
+		texto8 = "abc";
+		if(texto8.compareToIgnoreCase("DEF") < 0)
+			System.out.println(texto8 + " va antes que DEF");
+		else if (texto8.compareToIgnoreCase("def") > 0)
+			System.out.println(texto8 + " va después que DEF");
+		else
+			System.out.println(texto8 + " es igual que DEF. Esto no va a ocurrir, verdad?");
 		
 		/* Esto no es correcto
 		 * No se pueden comparar textos con operadores lógicos salvo en el caso de la igualdad
@@ -94,18 +110,23 @@ public class Cadenas {
 		System.out.println(texto6.toLowerCase());
 		System.out.println(texto4.toUpperCase());
 		
-		// el método substring me extrae un trozo del texto original.
-		// En este primer caso me extrae la cadena desde la posición 5 (incluida) hasta el final
-		System.out.println(texto6.substring(5));
-		// En este segundo caso me extrae el trozo de texto entre la posición 5 (incluida) y la 8 (no incluida)
-		System.out.println(texto6.substring(5,8));
-		
 		// Esto es una cadena vacia.
 		String cadenaVacia = "";
 		
 		// el método isEmpty devuelve true si la cadena está vacía
 		if(cadenaVacia.isEmpty())
 			System.out.println("La cadena está vacía");
+		// aunque también puedo comprobarlo así:
+		if(cadenaVacia.equals(""))
+			System.out.println("La cadena está vacía");
+		// o así
+		if(cadenaVacia == "")
+			System.out.println("La cadena está vacía");
+		
+		// isBlank() devuelve true si la cadena no tiene contenido
+		String cadenaConSoloEspacios = "   ";
+		if(cadenaConSoloEspacios.isBlank())
+			System.out.println("La cadena solo tiene espacios en blanco sin contenido");
 		
 		// Y esto son dos formas de crear una cadena nula
 		String cadenaNula = null; 
@@ -116,7 +137,7 @@ public class Cadenas {
 			System.out.println("La cadena es nula");
 		*/
 		
-		// En el primer caso si que puedo hacer esta comparación
+		// En el primer caso si que puedo hacer esta comparación así que la prefiero
 		if(cadenaNula == null)
 			System.out.println("La cadena es nula");
 		
@@ -125,11 +146,11 @@ public class Cadenas {
 			System.out.println("La cadena está vacía");
 		*/
 		
-		/* También provoca una excepción cualquier referencia a una posición
-		 * de una cadena que no exista. En el siguiente caso la posición 4 no existe
- 		String texto9="HOLA";
-		System.out.println(texto9.charAt(4));
-		 */
+		// el método substring me extrae un trozo del texto original.
+		// En este primer caso me extrae la cadena desde la posición 5 (incluida) hasta el final
+		System.out.println(texto6.substring(5));
+		// En este segundo caso me extrae el trozo de texto entre la posición 5 (incluida) y la 8 (no incluida)
+		System.out.println(texto6.substring(5,8));
 		
 		// El método indexOf devuelve la posición en la que aparece por primera vez la subcadena
 		// que va como argumento. Si no aparece devuelve -1
@@ -152,8 +173,8 @@ public class Cadenas {
 		// Igualmente pueden ser caracteres o subcadenas
 		System.out.println(texto6.replace("LA", "*******"));
 
-		// trim devuelve una nueva cadaena después de eliminar todos los espacios en blanco
-		// a la derecha y a la izquierda de la original
+		// trim devuelve una nueva cadena después de eliminar todos los espacios en blanco
+		// a la derecha y a la izquierda de la original respetando los centrales
         String dni = "             28888999X    ";
 		System.out.println(dni);
 		dni = dni.trim();

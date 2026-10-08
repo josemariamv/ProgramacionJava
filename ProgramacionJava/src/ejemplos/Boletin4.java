@@ -3,7 +3,7 @@ package ejemplos;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Boletin3 {
+public class Boletin4 {
 	public static void main(String[] args) {
 		// Algunos ejercicios del boletín 3
 		

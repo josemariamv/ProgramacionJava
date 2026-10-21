@@ -89,6 +89,7 @@ public class Boletin6 {
 		*/
 		
 		//ejercicio 6
+		/*
 		int contador = 0;
 		int numero = 2;
 		while(contador <50){
@@ -104,5 +105,32 @@ public class Boletin6 {
 			}
 			numero++;
 		}
+		*/
+		
+		// ejericio 7
+		// se ha hecho un pequeño cambio sobre lo que dice el enunciado
+		// y se pide el número por teclado a partir del cual se buscan los dos primeros primos gemelos
+		int numero = 1517;
+		int primoAnterior = -1;
+		int primoPosterior = -1;
+		boolean tengoGemelos = false;
+		while (tengoGemelos == false) {
+			boolean esPrimo = true;
+			int raiz = (int) Math.sqrt(numero) + 1;
+			for (int divisor = 2; divisor < raiz && esPrimo == true; divisor++) {
+				if (numero % divisor == 0)
+					esPrimo = false;
+			}
+			if (esPrimo == true) {
+				if(numero-primoAnterior == 2) {
+					tengoGemelos = true;
+					primoPosterior = numero;
+				}
+				else
+					primoAnterior = numero;
+			}
+			numero+=2;
+		}
+		System.out.println("Los dos primeros gemelos después de 1517 son " + primoAnterior + " y " + primoPosterior);
 	}
 }

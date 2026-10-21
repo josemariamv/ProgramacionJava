@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Boletin4 {
 	public static void main(String[] args) {
-		// Algunos ejercicios del boletín 3
+		// Algunos ejercicios del boletín 4
 		
 		// La quiniela
 		/*

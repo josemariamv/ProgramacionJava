@@ -9,6 +9,7 @@ public class Boletin6 {
 		Scanner teclado = new Scanner(System.in);
 		System.out.print("Introduce un número: ");
 		int n = teclado.nextInt();
+		teclado.close();
 		long resultado = n;
 		for(int i=n-1; i>1;i--) {
 			resultado = resultado * i;
@@ -21,6 +22,7 @@ public class Boletin6 {
 		Scanner teclado = new Scanner(System.in);
 		System.out.print("Introduce cuantos números de la sucesión de fibonacci quieres: ");
 		int n = teclado.nextInt();
+		teclado.close();
 		int f1 = 0;
 		int f2 = 1;
 		if(n==1)
@@ -43,6 +45,7 @@ public class Boletin6 {
 		Scanner teclado = new Scanner(System.in);
 		System.out.print("Introduce hasta que valor de la sucesión de fibonacci quieres ver: ");
 		int n = teclado.nextInt();
+		teclado.close();
 		int f1 = 0;
 		int f2 = 1;
 		if(n==0)
@@ -67,6 +70,7 @@ public class Boletin6 {
 		Scanner teclado = new Scanner(System.in);
 		System.out.print("Introduce un número: ");
 		int n = teclado.nextInt();
+		teclado.close();
 		String numeroConvertido = String.valueOf(n);
 		System.out.println("El número " + n + " tiene " + numeroConvertido.length() + " cifras");
 		*/
@@ -76,6 +80,7 @@ public class Boletin6 {
 		Scanner teclado = new Scanner(System.in);
 		System.out.print("Introduce un número: ");
 		int n = teclado.nextInt();
+		teclado.close();
 		String numeroConvertido = String.valueOf(n);
 		String cadenaInvertida="";
 		for(int i=0; i<numeroConvertido.length();i++) {
@@ -110,7 +115,14 @@ public class Boletin6 {
 		// ejericio 7
 		// se ha hecho un pequeño cambio sobre lo que dice el enunciado
 		// y se pide el número por teclado a partir del cual se buscan los dos primeros primos gemelos
-		int numero = 1517;
+		Scanner teclado = new Scanner(System.in);
+		System.out.print("Introduce un número entero positivo y mayor que 1: ");
+		int numero = teclado.nextInt();
+		teclado.close();
+		int original = numero;
+		// si es par le sumamos 1 para que sea impar. El 2 no tiene gemelo y no hay ningún otro par que sea primo
+		if(numero%2==0)
+			numero++;
 		int primoAnterior = -1;
 		int primoPosterior = -1;
 		boolean tengoGemelos = false;
@@ -131,6 +143,6 @@ public class Boletin6 {
 			}
 			numero+=2;
 		}
-		System.out.println("Los dos primeros gemelos después de 1517 son " + primoAnterior + " y " + primoPosterior);
+		System.out.println("Los dos primeros gemelos después de " + original + " son " + primoAnterior + " y " + primoPosterior);
 	}
 }

@@ -150,6 +150,7 @@ public class Boletin6 {
 		Scanner teclado = new Scanner(System.in); 
 		System.out.print("Introduce una hora: ");
 		String hora=teclado.nextLine();
+		teclado.close();
 		if(hora.length()!=5)
 			System.out.println("No es una hora válida");
 		else if(hora.charAt(2)!=':')

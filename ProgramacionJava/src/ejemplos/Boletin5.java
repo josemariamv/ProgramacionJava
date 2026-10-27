@@ -8,6 +8,7 @@ public class Boletin5 {
 		Scanner teclado = new Scanner(System.in);
 		System.out.print("Introduce un NIF o un NIE: ");
 		String entrada = teclado.nextLine();
+		teclado.close();
 		if (entrada.length() != 9)
 			System.out.println("No tiene 9 caracteres");
 		else {

@@ -114,6 +114,8 @@ public class CondicionalSwitch{
 		teclado.close();
 		
 		// Existe una versión alternativa de switch a partir de la versión 14 de Java
+		// En este caso el default es obligatorio. Si no lo ponemos la variable que igualamos al switch
+		// se quedaría sin inicializar
 		
 		int dia = 3;
 		String nombreDia = switch (dia) {
@@ -126,7 +128,15 @@ public class CondicionalSwitch{
 	    	default -> "Día no válido";
 		};
 		
-		System.out.println(nombreDia);
+		char moneda = 'D';
+		double dinero = 33.5;
+		double cantidad = switch (moneda) {
+	    	case 'D', 'd' -> 0.93 * dinero;
+	    	case 'F' -> 1.44 * dinero;
+	    	default -> dinero;
+		};
+		
+		System.out.println(cantidad);
 		
 	}
 }

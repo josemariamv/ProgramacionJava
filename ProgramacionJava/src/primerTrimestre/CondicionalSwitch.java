@@ -114,6 +114,8 @@ public class CondicionalSwitch{
 		teclado.close();
 		
 		// Existe una versión alternativa de switch a partir de la versión 14 de Java
+		// Fíjate que en este modelo es obligatorio poner punto y coma en la llave final
+		// También es imprescindible que exista una versión default
 		
 		int dia = 3;
 		String nombreDia = switch (dia) {

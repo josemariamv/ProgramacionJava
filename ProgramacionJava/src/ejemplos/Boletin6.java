@@ -115,6 +115,7 @@ public class Boletin6 {
 		// ejericio 7
 		// se ha hecho un pequeño cambio sobre lo que dice el enunciado
 		// y se pide el número por teclado a partir del cual se buscan los dos primeros primos gemelos
+		/*
 		Scanner teclado = new Scanner(System.in);
 		System.out.print("Introduce un número entero positivo y mayor que 1: ");
 		int numero = teclado.nextInt();
@@ -144,5 +145,40 @@ public class Boletin6 {
 			numero+=2;
 		}
 		System.out.println("Los dos primeros gemelos después de " + original + " son " + primoAnterior + " y " + primoPosterior);
+		*/
+		// ejercicio 14
+		Scanner teclado = new Scanner(System.in); 
+		System.out.print("Introduce una hora: ");
+		String hora=teclado.nextLine();
+		if(hora.length()!=5)
+			System.out.println("No es una hora válida");
+		else if(hora.charAt(2)!=':')
+			System.out.println("No es una hora válida");
+		else {
+			String numeros = hora.substring(0,2) + hora.substring(3,5);
+			boolean correcto = true;
+			for(int i=0; i<numeros.length(); i++) {
+				int ascii = (int)numeros.charAt(i); 
+				if(ascii <48 || ascii > 57)
+					correcto = false;
+			}
+			if(correcto == true) {
+				int h = Integer.parseInt(hora.substring(0,2));
+				int m = Integer.parseInt(hora.substring(3,5));
+				if(h > 23 || m > 60)
+					System.out.println("No es una hora válida");
+				else {
+					String periodo = switch(h) {
+						case 6, 7, 8, 9, 10, 11 -> "Mañana";
+						case 12, 13, 14, 15, 16, 17, 18, 19 -> "Tarde";
+						case 20, 21, 22, 23 -> "Noche";
+						default -> "Madrugada";
+					};
+					System.out.println("Son las " + hora + " de la " + periodo);
+				}
+			}
+			else
+				System.out.println("No es una hora válida");
+			}
 	}
 }

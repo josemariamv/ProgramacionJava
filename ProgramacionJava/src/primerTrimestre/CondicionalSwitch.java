@@ -116,6 +116,7 @@ public class CondicionalSwitch{
 		// Existe una versión alternativa de switch a partir de la versión 14 de Java
 		// En este caso el default es obligatorio. Si no lo ponemos la variable que igualamos al switch
 		// se quedaría sin inicializar
+		// Fíjate que en este modelo es obligatorio poner punto y coma en la llave final
 		
 		int dia = 3;
 		String nombreDia = switch (dia) {

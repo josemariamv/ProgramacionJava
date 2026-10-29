@@ -116,9 +116,6 @@ public class Boletin6 {
 		// se ha hecho un pequeño cambio sobre lo que dice el enunciado
 		// y se pide el número por teclado a partir del cual se buscan los dos primeros primos gemelos
 		/*
-<<<<<<< HEAD
-		int numero = 1517;
-=======
 		Scanner teclado = new Scanner(System.in);
 		System.out.print("Introduce un número entero positivo y mayor que 1: ");
 		int numero = teclado.nextInt();
@@ -127,7 +124,6 @@ public class Boletin6 {
 		// si es par le sumamos 1 para que sea impar. El 2 no tiene gemelo y no hay ningún otro par que sea primo
 		if(numero%2==0)
 			numero++;
->>>>>>> branch 'master' of https://github.com/josemariamv/ProgramacionJava.git
 		int primoAnterior = -1;
 		int primoPosterior = -1;
 		boolean tengoGemelos = false;
@@ -148,42 +144,7 @@ public class Boletin6 {
 			}
 			numero+=2;
 		}
-<<<<<<< HEAD
 		System.out.println("Los dos primeros gemelos después de 1517 son " + primoAnterior + " y " + primoPosterior);
-		*/
-		// Ejercicio 14
-		String hora="12:55";
-		if(hora.length()!=5)
-			System.out.println("Formato incorrecto");
-		else if(hora.charAt(2)!=':')
-			System.out.println("Formato incorrecto");
-		else {
-			String numeros = hora.substring(0,2) + hora.substring(3,5);
-			boolean correcto = true;
-			for(int i=0; i<numeros.length(); i++) {
-				int ascii = (int)numeros.charAt(i); 
-				if(ascii <48 || ascii > 57)
-					correcto = false;
-			}
-			if(correcto == true) {
-				int h = Integer.parseInt(hora.substring(0,2));
-				int m = Integer.parseInt(hora.substring(3,5));
-				if(h > 23 || m > 60)
-					System.out.println("Formato incorrecto");
-				else {
-					String periodo = switch(h) {
-						case 6, 7, 8, 9, 10, 11 -> "Mañana";
-						case 12, 13, 14, 15, 16, 17, 18, 19 -> "Tarde";
-						case 20, 21, 22, 23 -> "Noche";
-						default -> "Madrugada";
-					};
-					System.out.println("Formato correcto. Estamos en la " + periodo);
-				}
-			}
-			else
-				System.out.println("Formato incorrecto");
-=======
-		System.out.println("Los dos primeros gemelos después de " + original + " son " + primoAnterior + " y " + primoPosterior);
 		*/
 		// ejercicio 14
 		Scanner teclado = new Scanner(System.in); 
@@ -219,7 +180,6 @@ public class Boletin6 {
 			}
 			else
 				System.out.println("No es una hora válida");
->>>>>>> branch 'master' of https://github.com/josemariamv/ProgramacionJava.git
 			}
 	}
 }

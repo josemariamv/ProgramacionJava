@@ -13,13 +13,17 @@ public class Vectores {
 		 */
 		
 		// Así definimos un vector vacio de 5 enteros
-		int vector[] = new int[5];
+		int[] vector = new int[5];
 		// Y así uno vacío de 10 cadenas de texto
+		// como vemos, el corchete de la parte izquierda puede ir en el nombre o en el tipo
+		// Es indiferente donde, pero preferimos el método anterior, al lado del tipo
 		String lista[] = new String[10];
 		
 		// en ocasiones también podemos definirlo así, indicando el tipo de dato pero no su tamaño
 		// pero mucho cuidado porque en este caso no hemos asignado espacio para guardar nada en el
 		int[] vector2;
+		// y luego
+		vector2 = new int[20];
 		
 		// O así, asignando el contenido del vector e implicitamente su tamaño
 		double[] notas = {7.5, 3.3, 6.0, 9.6, 7.2};

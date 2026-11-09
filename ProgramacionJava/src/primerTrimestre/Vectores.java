@@ -128,6 +128,7 @@ public class Vectores {
 		// toString convierte el contenido del array en una cadena de texto
 		String texto = Arrays.toString(muchosMasProfesores);
 		System.out.println(texto);
+		// muy útil para convertir un array en una lista de elementos separados por comas:
 		texto = texto.replace("[", "");
 		texto = texto.replace("]", "");
 		System.out.println(texto);
@@ -147,5 +148,18 @@ public class Vectores {
 		String[] elementos2 = texto.split("[*]+");
 		for (String elemento:elementos2)
 			System.out.println(elemento);		
+		
+		// El método join sirve para unir elementos en una cadena de texto:
+		String[] palabras = {"Java", "es", "genial"};
+		String resultado = String.join(" ", palabras); 
+		System.out.println(resultado);
+		
+		// join y split tienen una gran sinergia entre ambos:
+		String fechaAnglosajona = "2026-11-09";
+		String[] partes = fechaAnglosajona.split("-");
+		String[] fechaInvertida = {partes[2], partes[1], partes[0]};
+		String fechaFinal = String.join("/", fechaInvertida);
+		// o, directamente:
+		System.out.println(String.join("/", fechaInvertida));
 	}
 }

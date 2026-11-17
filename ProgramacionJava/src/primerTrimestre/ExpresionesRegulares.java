@@ -9,6 +9,33 @@ import java.util.regex.Matcher;
  * mediante un String y siguiendo unos códigos establecidos
  */
 
+/*
+ * Las reglas básicas
+ * 
+ * a		- El caracter a y ningún otro
+ * a.c 		- El punto valida cualquier caracter (abc, a3c...)
+ * [abc] 	- Uno de los caracteres (a, b o c)
+ * [a-z]	- Un caracter en el rango indicado (a, p, x...) siguen la tabla ascci (la ñ no está incluida)
+ * [^aeiou]	- Cualquiera excepto estos (1, n, P...)
+ * \d		- Un dígito cualquiera
+ * \w		- Una letra, un dígito o el signo de subrayado _
+ * \s		- Un espacio, un tabulador o un salto de línea
+ * NOTA: Las barras hay que duplicarlas ya que van en un String
+ * 
+ * CARDINALIDAD:
+ * *		- 0 o mas veces
+ * +		- 1 o mas veces
+ * ? 		- 0 o 1 vez
+ * {n}		- exactamente n veces
+ * {n,m}	- entre n y m veces (ambas incluidas
+ * {n,}		- n o mas veces
+ * ^Hola	- Valida la cadena Hola si está al inicio
+ * mundo$	- Valida la cadena mundo si está al final
+ * a|b		- Alternativa (o a o b)
+ * 
+ * Todas estas reglas se pueden combinar entre si
+ */
+
 public class ExpresionesRegulares {
 	public static void main(String[] args) {
 		/*
@@ -36,7 +63,7 @@ public class ExpresionesRegulares {
 		else
 			System.out.println("El patrón no coincide");
 		
-		// Otro método mas sencillo consiste en usar directamente el método match de la clase String
+		// Si lo que queremos es buscar una coincidencia exacta usamos mejor el método matches
 		String dni1 = "12345678";
 		String dni2 = "12345678S";
         String patronDNI =  "\\d{8}[A-Z]"; // El patrón ahora son 8 dígitos seguidos de una letra en mayúsculas  

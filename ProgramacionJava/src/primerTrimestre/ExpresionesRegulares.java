@@ -34,36 +34,13 @@ import java.util.regex.Matcher;
  * a|b		- Alternativa (o a o b)
  * 
  * Todas estas reglas se pueden combinar entre si
+ * Cuidado que el acento ^ significa cosas diferentes si va dentro de un corchete o no
  */
 
 public class ExpresionesRegulares {
 	public static void main(String[] args) {
-		/*
-		 * Para usar expresiones regulares en Java necesitamos usar dos clases nuevas: Pattern y Matcher
-		 * Pattern me permite definir el patrón que busco
-		 * Matcher me identificará si ese patrón existe o no en una cadena de texto concreta.
-		 */
-		
-		Pattern patron = Pattern.compile("\\d{8}");
-		// Este segundo patrón es equivalente al anterior
-		Pattern patron2 = Pattern.compile("[0-9]{8}");
-		
-		Matcher coincidencia = patron.matcher("28896");
-		// En este caso el patrón no coincide. El texto no tiene 8 dígitos
-		if(coincidencia.find() == true)
-			System.out.println("El patrón coincide");
-		else
-			System.out.println("El patrón no coincide");
-		
-		coincidencia = patron2.matcher("X12345678P");
-		// En este caso si coincide. El patrón tiene 8 dígitos seguidos. No importa si tiene algo adicional
-		// Busca que haya una coincidencia, que el patrón exista dentro de la cadena
-		if(coincidencia.find() == true)
-			System.out.println("El patrón coincide");
-		else
-			System.out.println("El patrón no coincide");
-		
-		// Si lo que queremos es buscar una coincidencia exacta usamos mejor el método matches
+		// La forma más cómoda para buscar una coincidencias exactas con una expresión regular
+		// es usar el método matches de la clase String
 		String dni1 = "12345678";
 		String dni2 = "12345678S";
         String patronDNI =  "\\d{8}[A-Z]"; // El patrón ahora son 8 dígitos seguidos de una letra en mayúsculas  
@@ -106,5 +83,42 @@ public class ExpresionesRegulares {
         	System.out.println("es un mes válido");
         else
         	System.out.println("no es un mes válido");
+        
+        /*
+		 * Para buscar coincidencias no exactas usamos las clases Pattern y Matcher
+		 * Pattern me permite definir el patrón que busco
+		 * Matcher me identificará si ese patrón existe o no en una cadena de texto concreta.
+		 */
+		
+		Pattern patron = Pattern.compile("\\d{8}");
+		// Este segundo patrón es equivalente al anterior
+		Pattern patron2 = Pattern.compile("[0-9]{8}");
+		
+		Matcher coincidencia = patron.matcher("28896");
+		// En este caso el patrón no coincide. El texto no tiene 8 dígitos
+		if(coincidencia.find() == true)
+			System.out.println("El patrón coincide");
+		else
+			System.out.println("El patrón no coincide");
+		
+		coincidencia = patron2.matcher("X12345678P");
+		// En este caso si coincide. El patrón tiene 8 dígitos seguidos. No importa si tiene algo adicional
+		// Busca que haya una coincidencia, que el patrón exista dentro de la cadena
+		if(coincidencia.find() == true)
+			System.out.println("El patrón coincide");
+		else
+			System.out.println("El patrón no coincide");
+		
+		// Si quiero usar este método pero buscar una coincidencia exacta uso matches en lugar de find
+		Pattern.compile("\\d{8}");
+		coincidencia = patron.matcher("28896111");
+		if(coincidencia.matches() == true)
+			System.out.println("El patrón coincide");
+		else
+			System.out.println("El patrón no coincide");
+		
+		// Matcher.matches() y String.matches() son equivalentes en los casos básicos, pero Matcher es mucho mas potente
+		// y tiene funcionalidades adicionales que no vamos a ver. También es más rápido cuando tenemos que hacer muchas
+		// comparaciones contra el mismo patrón  
 	}
 }

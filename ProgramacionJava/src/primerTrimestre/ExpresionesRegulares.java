@@ -16,9 +16,10 @@ import java.util.regex.Matcher;
  * a.c 		- El punto valida cualquier caracter (abc, a3c...)
  * [abc] 	- Uno de los caracteres (a, b o c)
  * [a-z]	- Un caracter en el rango indicado (a, p, x...) siguen la tabla ascci (la ñ no está incluida)
- * [^aeiou]	- Cualquiera excepto estos (1, n, P...)
+ * [^aeiou]	- Cualquiera excepto estos (1, n, P...). El símbolo ^ tiene que ir inmediatamente después del corchete
  * \d		- Un dígito cualquiera
  * \w		- Una letra, un dígito o el signo de subrayado _
+ * \W		- Cualquiera que no esté en los anteriores (espacios, símbolos salvo el _)
  * \s		- Un espacio, un tabulador o un salto de línea
  * NOTA: Las barras hay que duplicarlas ya que van en un String
  * 
@@ -35,6 +36,8 @@ import java.util.regex.Matcher;
  * 
  * Todas estas reglas se pueden combinar entre si
  * Cuidado que el acento ^ significa cosas diferentes si va dentro de un corchete o no
+ * Recuerda que la barra invertida \ es un símbolo especial y debe de ir duplicado
+ * dentro de un string siempre si queremos que se tome literalmente como en estos casos
  */
 
 public class ExpresionesRegulares {
